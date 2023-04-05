@@ -22,7 +22,7 @@ file = 'transactions'
 #------------------------------------------------------------------------------
 # load data
 
-transactions = pd.read_csv(file + '.csv', sep =";", decimal='.', encoding = "ISO-8859-1")
+transactions = pd.read_csv(file + '.csv', encoding = "ISO-8859-1")
 
 # transactions[clm['date']] = pd.to_datetime(transactions[clm['date']], format='%d.%m.%Y')
 
@@ -37,4 +37,4 @@ transactions[clm['balance']] = transactions[clm['balance']] - transactions.iloc[
 #--------------------------------------------------------------------------
 # save
 
-transactions.to_csv(file + '.csv', sep=';', decimal='.', encoding = "ISO-8859-1", index=0)
+transactions.to_csv(file + '.csv', encoding = "ISO-8859-1", index=0)

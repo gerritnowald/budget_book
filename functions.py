@@ -13,7 +13,7 @@ def get_sum_cat_month(transactions, clm, next_months=3):
     transactions_cat = transactions.groupby(clm['category'])
     
     sum_cat_month = ( transactions_cat
-                        .resample('1M', on=clm['date']).sum()[clm['amount']]
+                        .resample('1M', on=clm['date']).sum(numeric_only=True)[clm['amount']]
                         .unstack(0).replace(0, np.nan) )
     
     sum_cat_month.index = sum_cat_month.index.map(lambda date : str(date)[:7])  # prettier index

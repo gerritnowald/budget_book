@@ -8,7 +8,7 @@ import pandas as pd
 #------------------------------------------------------------------------------
 # load
 
-transactions = pd.read_csv('transactions.csv', sep =";", encoding = "ISO-8859-1")
+transactions = pd.read_csv('transactions.csv', encoding = "ISO-8859-1")
 
 #------------------------------------------------------------------------------
 # find unique categories
