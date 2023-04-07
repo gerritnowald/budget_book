@@ -6,379 +6,379 @@ date,amount,balance,category
 2022-12-28,-14.35,3066.42,living expenses/groceries
 2022-12-28,-6.32,3080.77,living expenses/groceries
 2022-12-28,-33.05,3087.09,living expenses/groceries
-2022-12-27,-6.2,3120.1400000000003,living expenses/groceries
+2022-12-27,-6.2,3120.14,living expenses/groceries
 2022-12-27,-4.14,3126.34,living expenses/groceries
 2022-12-22,-35.77,3130.48,living expenses/groceries
 2022-12-20,-17.19,3166.25,living expenses/groceries
 2022-12-19,-4.5,3183.44,living expenses/groceries
 2022-12-19,-105.0,3187.94,leisure/food
 2022-12-19,-20.28,3292.94,living expenses/groceries
-2022-12-19,-32.03,3313.2200000000003,living expenses/groceries
-2022-12-19,-7.23,3345.2500000000005,living expenses/groceries
-2022-12-14,-31.0,3352.4800000000005,living expenses/presents
-2022-12-14,-5.0,3383.4800000000005,living expenses/presents
-2022-12-14,-3.99,3388.4800000000005,living expenses/phone
-2022-12-14,-45.0,3392.4700000000003,living expenses/presents
-2022-12-12,-26.84,3437.4700000000003,living expenses/groceries
-2022-12-12,-40.42,3464.3100000000004,living expenses/groceries
-2022-12-08,-24.5,3504.7300000000005,living expenses/presents
-2022-12-07,-1.2,3529.2300000000005,living expenses/groceries
-2022-12-06,-57.0,3530.4300000000003,living expenses/cash
-2022-12-06,-1000.0,3587.4300000000003,flat/rent
+2022-12-19,-32.03,3313.22,living expenses/groceries
+2022-12-19,-7.23,3345.25,living expenses/groceries
+2022-12-14,-31.0,3352.48,living expenses/presents
+2022-12-14,-5.0,3383.48,living expenses/presents
+2022-12-14,-3.99,3388.48,living expenses/phone
+2022-12-14,-45.0,3392.47,living expenses/presents
+2022-12-12,-26.84,3437.47,living expenses/groceries
+2022-12-12,-40.42,3464.31,living expenses/groceries
+2022-12-08,-24.5,3504.73,living expenses/presents
+2022-12-07,-1.2,3529.23,living expenses/groceries
+2022-12-06,-57.0,3530.43,living expenses/cash
+2022-12-06,-1000.0,3587.43,flat/rent
 2022-12-06,-27.1,4587.43,mobility/gas
-2022-12-06,-43.0,4614.530000000001,leisure/going out
-2022-12-06,-6.09,4657.530000000001,living expenses/groceries
-2022-12-05,-12.0,4663.620000000001,leisure/hobby
-2022-12-05,-27.06,4675.620000000001,living expenses/groceries
-2022-12-05,-21.57,4702.680000000001,living expenses/groceries
-2022-12-05,-72.0,4724.250000000001,mobility/maintenance
-2022-12-02,-19.9,4796.250000000001,leisure/sport
-2022-12-02,-4.38,4816.150000000001,living expenses/clothes
-2022-12-02,-85.0,4820.530000000001,mobility/parking
-2022-12-01,2700.0,4905.530000000001,income
-2022-12-01,-24.54,2205.5300000000007,living expenses/groceries
-2022-12-01,-92.56,2230.0700000000006,flat/ancillary costs
-2022-11-28,-14.2,2322.6300000000006,living expenses/groceries
-2022-11-21,-5.48,2336.8300000000004,leisure/food
-2022-11-21,-80.0,2342.3100000000004,leisure/food
-2022-11-21,-8.3,2422.3100000000004,living expenses/groceries
-2022-11-21,-13.09,2430.6100000000006,living expenses/groceries
-2022-11-17,-3.6,2443.7000000000007,leisure/food
-2022-11-15,-18.98,2447.3000000000006,living expenses/groceries
-2022-11-15,-51.9,2466.2800000000007,mobility/gas
-2022-11-14,-10.8,2518.1800000000007,living expenses/groceries
-2022-11-14,-4.53,2528.980000000001,living expenses/phone
-2022-11-14,-25.51,2533.510000000001,living expenses/groceries
-2022-11-09,-11.1,2559.0200000000013,living expenses/groceries
-2022-11-08,-31.52,2570.1200000000013,leisure/hobby
-2022-11-07,-7.0,2601.6400000000012,leisure/food
-2022-11-07,-82.72,2608.6400000000012,mobility/gas
-2022-11-04,-19.9,2691.360000000001,leisure/sport
-2022-11-04,-60.0,2711.260000000001,living expenses/presents
-2022-11-03,-8.85,2771.260000000001,living expenses/groceries
-2022-11-02,-125.0,2780.110000000001,leisure/food
-2022-11-01,-92.56,2905.110000000001,flat/ancillary costs
-2022-11-01,-1000.0,2997.670000000001,flat/rent
-2022-11-01,2700.0,3997.670000000001,income
-2022-11-01,-6.15,1297.6700000000012,leisure/food
-2022-11-01,-85.0,1303.8200000000013,mobility/parking
-2022-10-31,-8.74,1388.8200000000013,living expenses/groceries
-2022-10-31,-20.66,1397.5600000000013,living expenses/presents
-2022-10-31,-7.5,1418.2200000000014,mobility/public transport
-2022-10-28,-29.61,1425.7200000000014,living expenses/groceries
-2022-10-27,-6.99,1455.3300000000013,leisure/sport
-2022-10-24,-54.19,1462.3200000000013,mobility/gas
-2022-10-24,-63.6,1516.5100000000014,vacation/transport
-2022-10-21,-29.75,1580.1100000000013,living expenses/groceries
-2022-10-20,-11.2,1609.8600000000013,vacation/various
-2022-10-19,-18.34,1621.0600000000013,living expenses/groceries
-2022-10-17,-55.0,1639.4000000000012,leisure/food
-2022-10-17,-243.95,1694.4000000000012,living expenses/cash
-2022-10-17,-49.94,1938.3500000000013,living expenses/groceries
-2022-10-17,-3.54,1988.2900000000013,living expenses/groceries
-2022-10-17,-5.5,1991.8300000000013,living expenses/groceries
-2022-10-17,-27.64,1997.3300000000013,living expenses/groceries
-2022-10-17,-6.57,2024.9700000000014,living expenses/phone
-2022-10-17,-60.0,2031.5400000000013,vacation/lodging
-2022-10-17,-32.0,2091.5400000000013,vacation/various
-2022-10-17,-8.0,2123.5400000000013,leisure/food
-2022-10-17,-200.0,2131.5400000000013,leisure/food
-2022-10-12,-22.0,2331.5400000000013,leisure/going out
-2022-10-12,-30.19,2353.5400000000013,living expenses/groceries
-2022-10-11,-5.7,2383.7300000000014,living expenses/groceries
-2022-10-10,-34.42,2389.430000000001,living expenses/groceries
-2022-10-10,-63.05,2423.8500000000013,mobility/gas
-2022-10-07,-50.0,2486.9000000000015,living expenses/cash
-2022-10-04,-92.56,2536.9000000000015,flat/ancillary costs
-2022-10-04,-85.0,2629.4600000000014,mobility/parking
-2022-10-03,-1000.0,2714.4600000000014,flat/rent
-2022-10-03,-22.58,3714.4600000000014,living expenses/groceries
-2022-10-03,-11.9,3737.0400000000013,vacation/various
-2022-10-01,2700.0,3748.9400000000014,income
-2022-09-30,-1.89,1048.9400000000016,living expenses/groceries
-2022-09-28,-48.0,1050.8300000000017,leisure/sport
-2022-09-26,-6.5,1098.8300000000017,leisure/food
-2022-09-26,-23.96,1105.3300000000017,living expenses/groceries
-2022-09-26,-24.99,1129.2900000000018,living expenses/groceries
-2022-09-26,-59.7,1154.2800000000016,living expenses/groceries
-2022-09-22,-39.16,1213.9800000000018,mobility/gas
-2022-09-20,-6.0,1253.1400000000017,leisure/sport
-2022-09-19,-12.64,1259.1400000000017,living expenses/groceries
-2022-09-19,-9.8,1271.7800000000018,mobility/parking
-2022-09-16,-3.76,1281.5800000000017,living expenses/groceries
-2022-09-14,-4.17,1285.3400000000017,living expenses/phone
-2022-09-08,-100.0,1289.5100000000018,living expenses/cash
-2022-09-07,-10.0,1389.5100000000018,leisure/food
-2022-09-07,-12.9,1399.5100000000018,leisure/sport
-2022-09-07,-0.99,1412.410000000002,living expenses/groceries
-2022-09-07,-1000.0,1413.400000000002,flat/rent
-2022-09-07,-3.5,2413.400000000002,leisure/food
-2022-09-06,-35.0,2416.900000000002,leisure/food
-2022-09-06,-10.0,2451.900000000002,leisure/sport
-2022-09-05,-18.62,2461.900000000002,living expenses/groceries
-2022-09-05,-412.5,2480.520000000002,vacation/lodging
-2022-09-01,2700.0,2893.020000000002,income
-2022-09-01,-92.56,193.0200000000018,flat/ancillary costs
-2022-09-01,-85.0,285.58000000000175,mobility/parking
-2022-09-01,-6.7,370.58000000000175,living expenses/groceries
-2022-08-31,-307.4,377.280000000002,living expenses/presents
-2022-08-31,-45.27,684.6800000000021,mobility/gas
-2022-08-31,-26.36,729.9500000000016,flat/furniture
-2022-08-31,-43.64,756.3100000000018,living expenses/groceries
-2022-08-29,-42.14,799.9500000000016,living expenses/groceries
-2022-08-29,-5.8,842.090000000002,living expenses/groceries
-2022-08-29,-5.93,847.8900000000017,living expenses/groceries
-2022-08-25,-79.98,853.8200000000015,living expenses/clothes
-2022-08-25,-40.0,933.800000000002,leisure/food
-2022-08-25,-2.49,973.8000000000018,leisure/hobby
-2022-08-24,-44.0,976.2900000000018,leisure/food
-2022-08-24,-19.0,1020.2900000000018,leisure/food
-2022-08-24,-89.05,1039.2900000000018,living expenses/cash
-2022-08-24,-41.95,1128.3400000000017,living expenses/clothes
-2022-08-23,-79.0,1170.2900000000018,leisure/food
-2022-08-23,-24.29,1249.2900000000018,living expenses/groceries
-2022-08-23,-49.19,1273.5800000000017,mobility/gas
-2022-08-23,-3.5,1322.7700000000018,mobility/parking
-2022-08-23,-1244.6,1326.2700000000018,vacation/lodging
-2022-08-22,-29.0,2570.8700000000017,leisure/food
-2022-08-22,-59.1,2599.8700000000017,leisure/food
-2022-08-22,-51.2,2658.9700000000016,leisure/food
-2022-08-22,-32.54,2710.1700000000014,living expenses/groceries
-2022-08-18,-33.07,2742.7100000000014,living expenses/groceries
-2022-08-15,-40.5,2775.7800000000016,leisure/food
-2022-08-15,-1.6,2816.2800000000016,leisure/hobby
-2022-08-15,-57.33,2817.8800000000015,mobility/gas
-2022-08-12,-43.88,2875.2100000000014,mobility/gas
-2022-08-11,-4.4,2919.0900000000015,leisure/food
-2022-08-11,-3.99,2923.4900000000016,living expenses/phone
-2022-08-09,-11.7,2927.4800000000014,living expenses/groceries
-2022-08-09,-4.5,2939.180000000001,living expenses/groceries
-2022-08-09,-8.8,2943.680000000001,mobility/parking
-2022-08-08,-53.97,2952.4800000000014,living expenses/groceries
-2022-08-05,-53.21,3006.450000000001,living expenses/groceries
-2022-08-04,-7.0,3059.660000000001,leisure/food
-2022-08-02,-64.97,3066.660000000001,living expenses/groceries
-2022-08-01,-99.95,3131.630000000001,flat/ancillary costs
-2022-08-01,-1000.0,3231.580000000001,flat/rent
-2022-08-01,2700.0,4231.580000000001,income
-2022-08-01,-35.0,1531.5800000000006,leisure/food
-2022-08-01,-17.2,1566.5800000000006,living expenses/groceries
-2022-08-01,-15.4,1583.7800000000007,living expenses/groceries
-2022-08-01,-57.77,1599.1800000000007,mobility/gas
-2022-08-01,-85.0,1656.9500000000007,mobility/parking
-2022-07-28,-5.99,1741.9500000000007,leisure/hobby
-2022-07-26,-17.89,1747.9400000000007,flat/furniture
-2022-07-26,-60.0,1765.8300000000008,living expenses/cash
-2022-07-26,-41.91,1825.8300000000008,living expenses/groceries
-2022-07-26,-24.35,1867.740000000001,mobility/gas
-2022-07-25,-50.0,1892.0900000000008,living expenses/cash
-2022-07-25,-35.1,1942.0900000000008,living expenses/groceries
-2022-07-25,-74.08,1977.1900000000007,vacation/various
-2022-07-22,-37.33,2051.2700000000004,living expenses/groceries
-2022-07-22,-144.0,2088.6000000000004,vacation/lodging
-2022-07-21,-7.8,2232.6000000000004,leisure/food
-2022-07-20,-4.5,2240.4000000000005,leisure/food
-2022-07-19,-44.0,2244.9000000000005,living expenses/groceries
-2022-07-18,-7.2,2288.9000000000005,leisure/food
-2022-07-18,-36.0,2296.1000000000004,vacation/lodging
-2022-07-18,-5.12,2332.1000000000004,vacation/various
-2022-07-18,-26.99,2337.2200000000003,vacation/various
+2022-12-06,-43.0,4614.53,leisure/going out
+2022-12-06,-6.09,4657.53,living expenses/groceries
+2022-12-05,-12.0,4663.62,leisure/hobby
+2022-12-05,-27.06,4675.62,living expenses/groceries
+2022-12-05,-21.57,4702.68,living expenses/groceries
+2022-12-05,-72.0,4724.25,mobility/maintenance
+2022-12-02,-19.9,4796.25,leisure/sport
+2022-12-02,-4.38,4816.15,living expenses/clothes
+2022-12-02,-85.0,4820.53,mobility/parking
+2022-12-01,2700.0,4905.53,income
+2022-12-01,-24.54,2205.53,living expenses/groceries
+2022-12-01,-92.56,2230.07,flat/ancillary costs
+2022-11-28,-14.2,2322.63,living expenses/groceries
+2022-11-21,-5.48,2336.83,leisure/food
+2022-11-21,-80.0,2342.31,leisure/food
+2022-11-21,-8.3,2422.31,living expenses/groceries
+2022-11-21,-13.09,2430.61,living expenses/groceries
+2022-11-17,-3.6,2443.7,leisure/food
+2022-11-15,-18.98,2447.3,living expenses/groceries
+2022-11-15,-51.9,2466.28,mobility/gas
+2022-11-14,-10.8,2518.18,living expenses/groceries
+2022-11-14,-4.53,2528.98,living expenses/phone
+2022-11-14,-25.51,2533.51,living expenses/groceries
+2022-11-09,-11.1,2559.02,living expenses/groceries
+2022-11-08,-31.52,2570.12,leisure/hobby
+2022-11-07,-7.0,2601.64,leisure/food
+2022-11-07,-82.72,2608.64,mobility/gas
+2022-11-04,-19.9,2691.36,leisure/sport
+2022-11-04,-60.0,2711.26,living expenses/presents
+2022-11-03,-8.85,2771.26,living expenses/groceries
+2022-11-02,-125.0,2780.11,leisure/food
+2022-11-01,-92.56,2905.11,flat/ancillary costs
+2022-11-01,-1000.0,2997.67,flat/rent
+2022-11-01,2700.0,3997.67,income
+2022-11-01,-6.15,1297.67,leisure/food
+2022-11-01,-85.0,1303.82,mobility/parking
+2022-10-31,-8.74,1388.82,living expenses/groceries
+2022-10-31,-20.66,1397.56,living expenses/presents
+2022-10-31,-7.5,1418.22,mobility/public transport
+2022-10-28,-29.61,1425.72,living expenses/groceries
+2022-10-27,-6.99,1455.33,leisure/sport
+2022-10-24,-54.19,1462.32,mobility/gas
+2022-10-24,-63.6,1516.51,vacation/transport
+2022-10-21,-29.75,1580.11,living expenses/groceries
+2022-10-20,-11.2,1609.86,vacation/various
+2022-10-19,-18.34,1621.06,living expenses/groceries
+2022-10-17,-55.0,1639.4,leisure/food
+2022-10-17,-243.95,1694.4,living expenses/cash
+2022-10-17,-49.94,1938.35,living expenses/groceries
+2022-10-17,-3.54,1988.29,living expenses/groceries
+2022-10-17,-5.5,1991.83,living expenses/groceries
+2022-10-17,-27.64,1997.33,living expenses/groceries
+2022-10-17,-6.57,2024.97,living expenses/phone
+2022-10-17,-60.0,2031.54,vacation/lodging
+2022-10-17,-32.0,2091.54,vacation/various
+2022-10-17,-8.0,2123.54,leisure/food
+2022-10-17,-200.0,2131.54,leisure/food
+2022-10-12,-22.0,2331.54,leisure/going out
+2022-10-12,-30.19,2353.54,living expenses/groceries
+2022-10-11,-5.7,2383.73,living expenses/groceries
+2022-10-10,-34.42,2389.43,living expenses/groceries
+2022-10-10,-63.05,2423.85,mobility/gas
+2022-10-07,-50.0,2486.9,living expenses/cash
+2022-10-04,-92.56,2536.9,flat/ancillary costs
+2022-10-04,-85.0,2629.46,mobility/parking
+2022-10-03,-1000.0,2714.46,flat/rent
+2022-10-03,-22.58,3714.46,living expenses/groceries
+2022-10-03,-11.9,3737.04,vacation/various
+2022-10-01,2700.0,3748.94,income
+2022-09-30,-1.89,1048.94,living expenses/groceries
+2022-09-28,-48.0,1050.83,leisure/sport
+2022-09-26,-6.5,1098.83,leisure/food
+2022-09-26,-23.96,1105.33,living expenses/groceries
+2022-09-26,-24.99,1129.29,living expenses/groceries
+2022-09-26,-59.7,1154.28,living expenses/groceries
+2022-09-22,-39.16,1213.98,mobility/gas
+2022-09-20,-6.0,1253.14,leisure/sport
+2022-09-19,-12.64,1259.14,living expenses/groceries
+2022-09-19,-9.8,1271.78,mobility/parking
+2022-09-16,-3.76,1281.58,living expenses/groceries
+2022-09-14,-4.17,1285.34,living expenses/phone
+2022-09-08,-100.0,1289.51,living expenses/cash
+2022-09-07,-10.0,1389.51,leisure/food
+2022-09-07,-12.9,1399.51,leisure/sport
+2022-09-07,-0.99,1412.41,living expenses/groceries
+2022-09-07,-1000.0,1413.4,flat/rent
+2022-09-07,-3.5,2413.4,leisure/food
+2022-09-06,-35.0,2416.9,leisure/food
+2022-09-06,-10.0,2451.9,leisure/sport
+2022-09-05,-18.62,2461.9,living expenses/groceries
+2022-09-05,-412.5,2480.52,vacation/lodging
+2022-09-01,2700.0,2893.02,income
+2022-09-01,-92.56,193.02,flat/ancillary costs
+2022-09-01,-85.0,285.58,mobility/parking
+2022-09-01,-6.7,370.58,living expenses/groceries
+2022-08-31,-307.4,377.28,living expenses/presents
+2022-08-31,-45.27,684.68,mobility/gas
+2022-08-31,-26.36,729.95,flat/furniture
+2022-08-31,-43.64,756.31,living expenses/groceries
+2022-08-29,-42.14,799.95,living expenses/groceries
+2022-08-29,-5.8,842.09,living expenses/groceries
+2022-08-29,-5.93,847.89,living expenses/groceries
+2022-08-25,-79.98,853.82,living expenses/clothes
+2022-08-25,-40.0,933.8,leisure/food
+2022-08-25,-2.49,973.8,leisure/hobby
+2022-08-24,-44.0,976.29,leisure/food
+2022-08-24,-19.0,1020.29,leisure/food
+2022-08-24,-89.05,1039.29,living expenses/cash
+2022-08-24,-41.95,1128.34,living expenses/clothes
+2022-08-23,-79.0,1170.29,leisure/food
+2022-08-23,-24.29,1249.29,living expenses/groceries
+2022-08-23,-49.19,1273.58,mobility/gas
+2022-08-23,-3.5,1322.77,mobility/parking
+2022-08-23,-1244.6,1326.27,vacation/lodging
+2022-08-22,-29.0,2570.87,leisure/food
+2022-08-22,-59.1,2599.87,leisure/food
+2022-08-22,-51.2,2658.97,leisure/food
+2022-08-22,-32.54,2710.17,living expenses/groceries
+2022-08-18,-33.07,2742.71,living expenses/groceries
+2022-08-15,-40.5,2775.78,leisure/food
+2022-08-15,-1.6,2816.28,leisure/hobby
+2022-08-15,-57.33,2817.88,mobility/gas
+2022-08-12,-43.88,2875.21,mobility/gas
+2022-08-11,-4.4,2919.09,leisure/food
+2022-08-11,-3.99,2923.49,living expenses/phone
+2022-08-09,-11.7,2927.48,living expenses/groceries
+2022-08-09,-4.5,2939.18,living expenses/groceries
+2022-08-09,-8.8,2943.68,mobility/parking
+2022-08-08,-53.97,2952.48,living expenses/groceries
+2022-08-05,-53.21,3006.45,living expenses/groceries
+2022-08-04,-7.0,3059.66,leisure/food
+2022-08-02,-64.97,3066.66,living expenses/groceries
+2022-08-01,-99.95,3131.63,flat/ancillary costs
+2022-08-01,-1000.0,3231.58,flat/rent
+2022-08-01,2700.0,4231.58,income
+2022-08-01,-35.0,1531.58,leisure/food
+2022-08-01,-17.2,1566.58,living expenses/groceries
+2022-08-01,-15.4,1583.78,living expenses/groceries
+2022-08-01,-57.77,1599.18,mobility/gas
+2022-08-01,-85.0,1656.95,mobility/parking
+2022-07-28,-5.99,1741.95,leisure/hobby
+2022-07-26,-17.89,1747.94,flat/furniture
+2022-07-26,-60.0,1765.83,living expenses/cash
+2022-07-26,-41.91,1825.83,living expenses/groceries
+2022-07-26,-24.35,1867.74,mobility/gas
+2022-07-25,-50.0,1892.09,living expenses/cash
+2022-07-25,-35.1,1942.09,living expenses/groceries
+2022-07-25,-74.08,1977.19,vacation/various
+2022-07-22,-37.33,2051.27,living expenses/groceries
+2022-07-22,-144.0,2088.6,vacation/lodging
+2022-07-21,-7.8,2232.6,leisure/food
+2022-07-20,-4.5,2240.4,leisure/food
+2022-07-19,-44.0,2244.9,living expenses/groceries
+2022-07-18,-7.2,2288.9,leisure/food
+2022-07-18,-36.0,2296.1,vacation/lodging
+2022-07-18,-5.12,2332.1,vacation/various
+2022-07-18,-26.99,2337.22,vacation/various
 2022-07-14,-99.95,2364.21,flat/ancillary costs
 2022-07-14,-6.0,2464.16,leisure/food
 2022-07-14,-4.67,2470.16,living expenses/phone
 2022-07-13,-88.99,2474.83,leisure/hobby
-2022-07-07,-5.6,2563.8199999999997,leisure/food
-2022-07-06,-85.0,2569.4199999999996,mobility/parking
-2022-07-05,-50.0,2654.4199999999996,living expenses/cash
-2022-07-05,-37.99,2704.4199999999996,living expenses/groceries
-2022-07-05,-36.9,2742.4099999999994,mobility/gas
-2022-07-04,-1000.0,2779.3099999999995,flat/rent
-2022-07-04,-40.09,3779.3099999999995,living expenses/groceries
-2022-07-01,2700.0,3819.3999999999996,income
-2022-07-01,-5.0,1119.3999999999996,leisure/food
-2022-06-30,-5.6,1124.3999999999996,leisure/food
-2022-06-27,-145.0,1129.9999999999998,leisure/food
-2022-06-27,-18.0,1274.9999999999998,leisure/hobby
-2022-06-27,-33.95,1292.9999999999998,living expenses/groceries
-2022-06-27,-12.84,1326.9499999999998,living expenses/groceries
-2022-06-24,-12.0,1339.7899999999997,leisure/hobby
-2022-06-23,-4.4,1351.7899999999997,leisure/food
-2022-06-23,-1.9,1356.1899999999998,leisure/food
+2022-07-07,-5.6,2563.82,leisure/food
+2022-07-06,-85.0,2569.42,mobility/parking
+2022-07-05,-50.0,2654.42,living expenses/cash
+2022-07-05,-37.99,2704.42,living expenses/groceries
+2022-07-05,-36.9,2742.41,mobility/gas
+2022-07-04,-1000.0,2779.31,flat/rent
+2022-07-04,-40.09,3779.31,living expenses/groceries
+2022-07-01,2700.0,3819.4,income
+2022-07-01,-5.0,1119.4,leisure/food
+2022-06-30,-5.6,1124.4,leisure/food
+2022-06-27,-145.0,1130.0,leisure/food
+2022-06-27,-18.0,1275.0,leisure/hobby
+2022-06-27,-33.95,1293.0,living expenses/groceries
+2022-06-27,-12.84,1326.95,living expenses/groceries
+2022-06-24,-12.0,1339.79,leisure/hobby
+2022-06-23,-4.4,1351.79,leisure/food
+2022-06-23,-1.9,1356.19,leisure/food
 2022-06-22,-49.55,1358.09,mobility/gas
-2022-06-20,-38.0,1407.6399999999999,leisure/food
-2022-06-20,-32.0,1445.6399999999999,leisure/food
-2022-06-20,-63.72,1477.6399999999999,living expenses/groceries
+2022-06-20,-38.0,1407.64,leisure/food
+2022-06-20,-32.0,1445.64,leisure/food
+2022-06-20,-63.72,1477.64,living expenses/groceries
 2022-06-20,-36.35,1541.36,mobility/gas
-2022-06-20,-7.0,1577.7099999999998,mobility/parking
-2022-06-20,-7.0,1584.7099999999998,mobility/parking
-2022-06-16,-52.15,1591.7099999999998,leisure/food
+2022-06-20,-7.0,1577.71,mobility/parking
+2022-06-20,-7.0,1584.71,mobility/parking
+2022-06-16,-52.15,1591.71,leisure/food
 2022-06-16,-10.57,1643.86,leisure/food
-2022-06-16,-5.63,1654.4299999999998,living expenses/groceries
+2022-06-16,-5.63,1654.43,living expenses/groceries
 2022-06-15,-17.56,1660.06,leisure/food
 2022-06-15,-32.23,1677.62,leisure/hobby
 2022-06-15,-6.99,1709.85,living expenses/groceries
 2022-06-15,-3.99,1716.84,living expenses/phone
 2022-06-14,-5.22,1720.83,living expenses/groceries
 2022-06-14,-44.35,1726.05,living expenses/groceries
-2022-06-13,-37.06,1770.3999999999999,leisure/food
-2022-06-13,-6.86,1807.4599999999998,leisure/food
-2022-06-13,-7.55,1814.3199999999997,living expenses/groceries
-2022-06-13,-5.63,1821.8699999999997,living expenses/groceries
-2022-06-13,-47.23,1827.4999999999998,living expenses/groceries
-2022-06-10,-203.84,1874.7299999999998,vacation/transport
-2022-06-10,-10.44,2078.5699999999997,leisure/food
-2022-06-10,-90.47,2089.0099999999998,mobility/gas
-2022-06-09,-73.3,2179.4799999999996,living expenses/groceries
-2022-06-06,-41.22,2252.7799999999997,living expenses/groceries
-2022-06-03,-37.72,2293.9999999999995,leisure/food
-2022-06-01,-75.99,2331.7199999999993,flat/ancillary costs
-2022-06-01,-1000.0,2407.709999999999,flat/rent
-2022-06-01,2700.0,3407.709999999999,income
-2022-06-01,-5.49,707.7099999999991,leisure/food
-2022-06-01,-12.4,713.1999999999994,leisure/food
-2022-06-01,-10.3,725.5999999999995,mobility/parking
-2022-06-01,-85.0,735.8999999999992,mobility/parking
-2022-05-31,-21.97,820.8999999999992,leisure/food
-2022-05-31,-59.02,842.8699999999994,leisure/food
-2022-05-31,-15.9,901.8899999999994,living expenses/groceries
-2022-05-30,-26.0,917.789999999999,vacation/various
-2022-05-30,-44.0,943.789999999999,leisure/food
-2022-05-30,-30.88,987.7899999999993,living expenses/groceries
-2022-05-27,-29.0,1018.6699999999992,leisure/food
-2022-05-25,-25.38,1047.6699999999992,living expenses/groceries
-2022-05-24,-33.97,1073.0499999999993,mobility/gas
-2022-05-23,-149.0,1107.0199999999993,leisure/going out
-2022-05-23,36.64,1256.0199999999993,leisure/hobby
-2022-05-23,-96.0,1219.3799999999992,living expenses/cash
-2022-05-23,-268.6,1315.3799999999992,vacation/lodging
-2022-05-18,-20.0,1583.9799999999993,living expenses/cash
-2022-05-18,-54.57,1603.9799999999993,living expenses/groceries
-2022-05-18,-30.0,1658.5499999999993,leisure/food
-2022-05-16,-35.32,1688.5499999999993,living expenses/groceries
-2022-05-16,-77.03,1723.8699999999992,mobility/gas
-2022-05-13,-36.64,1800.8999999999992,leisure/hobby
-2022-05-12,-6.8,1837.5399999999993,leisure/food
-2022-05-12,-4.08,1844.3399999999992,living expenses/phone
-2022-05-10,-5.8,1848.4199999999992,leisure/food
-2022-05-10,-49.6,1854.2199999999991,living expenses/groceries
-2022-05-09,-47.83,1903.819999999999,living expenses/groceries
-2022-05-05,-30.91,1951.649999999999,living expenses/groceries
-2022-05-02,-75.99,1982.559999999999,flat/ancillary costs
-2022-05-02,-70.0,2058.5499999999993,living expenses/cash
-2022-05-02,-17.79,2128.5499999999993,living expenses/groceries
-2022-05-02,-27.72,2146.3399999999992,living expenses/groceries
-2022-05-02,-85.0,2174.059999999999,mobility/parking
-2022-05-02,-1000.0,2259.059999999999,flat/rent
-2022-05-02,-70.0,3259.059999999999,leisure/food
-2022-05-01,2700.0,3329.059999999999,income
-2022-04-29,-5.0,629.059999999999,leisure/food
-2022-04-28,-50.0,634.059999999999,living expenses/groceries
-2022-04-28,-150.0,684.059999999999,living expenses/cash
-2022-04-28,-8.83,834.059999999999,living expenses/groceries
-2022-04-25,-39.98,842.889999999999,living expenses/groceries
-2022-04-20,-39.23,882.869999999999,living expenses/groceries
-2022-04-20,-48.85,922.099999999999,mobility/gas
-2022-04-14,-3.99,970.9499999999991,living expenses/phone
-2022-04-14,-1250.0,974.9399999999991,mobility/bicycle
-2022-04-13,-25.48,2224.939999999999,mobility/bicycle
-2022-04-12,-18.75,2250.419999999999,leisure/hobby
-2022-04-12,-85.0,2269.169999999999,mobility/parking
-2022-04-11,-33.05,2354.169999999999,living expenses/groceries
-2022-04-08,-35.0,2387.2199999999993,living expenses/cash
-2022-04-08,-10.0,2422.2199999999993,leisure/food
-2022-04-08,-65.0,2432.2199999999993,leisure/food
-2022-04-06,-35.0,2497.2199999999993,leisure/food
-2022-04-06,-4.2,2532.2199999999993,living expenses/groceries
-2022-04-05,-119.0,2536.419999999999,flat/furniture
-2022-04-05,-18.47,2655.419999999999,living expenses/groceries
-2022-04-04,-14.99,2673.889999999999,leisure/hobby
-2022-04-04,-36.17,2688.8799999999987,living expenses/groceries
-2022-04-01,-75.99,2725.049999999999,flat/ancillary costs
-2022-04-01,-1000.0,2801.0399999999986,flat/rent
-2022-04-01,2700.0,3801.0399999999986,income
-2022-04-01,-13.83,1101.0399999999986,living expenses/groceries
-2022-03-30,-29.94,1114.8699999999988,flat/furniture
-2022-03-29,-47.84,1144.8099999999988,living expenses/groceries
-2022-03-28,-2.17,1192.6499999999987,leisure/hobby
-2022-03-28,-24.7,1194.8199999999988,leisure/food
-2022-03-28,-14.0,1219.5199999999988,mobility/public transport
-2022-03-28,-8.05,1233.5199999999988,living expenses/groceries
-2022-03-23,-4.32,1241.5699999999988,leisure/hobby
-2022-03-23,-323.23,1245.8899999999987,living expenses/insurance
-2022-03-23,-79.8,1569.1199999999988,living expenses/insurance
-2022-03-22,-43.2,1648.9199999999987,leisure/going out
-2022-03-22,-24.63,1692.1199999999988,leisure/hobby
-2022-03-21,-78.93,1716.7499999999989,leisure/going out
-2022-03-18,-53.84,1795.679999999999,living expenses/groceries
-2022-03-17,-69.4,1849.5199999999988,leisure/going out
-2022-03-17,-311.7,1918.919999999999,mobility/maintenance
-2022-03-16,-33.27,2230.619999999999,living expenses/groceries
-2022-03-16,-81.11,2263.889999999999,mobility/gas
-2022-03-15,-1.95,2344.999999999999,mobility/parking
-2022-03-14,-3.99,2346.949999999999,living expenses/phone
-2022-03-14,-1.09,2350.9399999999987,mobility/parking
-2022-03-11,-40.0,2352.029999999999,leisure/food
-2022-03-11,-8.0,2392.029999999999,leisure/going out
-2022-03-11,-36.32,2400.029999999999,living expenses/groceries
-2022-03-11,-6.64,2436.349999999999,mobility/parking
-2022-03-10,-36.9,2442.989999999999,leisure/hobby
-2022-03-10,-118.0,2479.889999999999,living expenses/clothes
-2022-03-10,-12.8,2597.889999999999,living expenses/groceries
-2022-03-10,-92.85,2610.689999999999,mobility/gas
-2022-03-09,-10.15,2703.539999999999,leisure/food
-2022-03-09,-3.83,2713.689999999999,leisure/hobby
-2022-03-09,-11.5,2717.519999999999,mobility/parking
-2022-03-09,-9.4,2729.019999999999,mobility/public transport
-2022-03-08,-22.9,2738.419999999999,leisure/food
-2022-03-08,-9.5,2761.3199999999993,living expenses/groceries
-2022-03-08,-19.21,2770.8199999999993,living expenses/groceries
-2022-03-07,-6.26,2790.0299999999993,living expenses/groceries
-2022-03-04,-52.21,2796.2899999999995,living expenses/groceries
-2022-03-03,-1000.0,2848.4999999999995,flat/rent
-2022-03-03,-55.0,3848.4999999999995,leisure/sport
-2022-03-01,-83.11,3903.4999999999995,flat/ancillary costs
-2022-03-01,2700.0,3986.6099999999997,income
+2022-06-13,-37.06,1770.4,leisure/food
+2022-06-13,-6.86,1807.46,leisure/food
+2022-06-13,-7.55,1814.32,living expenses/groceries
+2022-06-13,-5.63,1821.87,living expenses/groceries
+2022-06-13,-47.23,1827.5,living expenses/groceries
+2022-06-10,-203.84,1874.73,vacation/transport
+2022-06-10,-10.44,2078.57,leisure/food
+2022-06-10,-90.47,2089.01,mobility/gas
+2022-06-09,-73.3,2179.48,living expenses/groceries
+2022-06-06,-41.22,2252.78,living expenses/groceries
+2022-06-03,-37.72,2294.0,leisure/food
+2022-06-01,-75.99,2331.72,flat/ancillary costs
+2022-06-01,-1000.0,2407.71,flat/rent
+2022-06-01,2700.0,3407.71,income
+2022-06-01,-5.49,707.71,leisure/food
+2022-06-01,-12.4,713.2,leisure/food
+2022-06-01,-10.3,725.6,mobility/parking
+2022-06-01,-85.0,735.9,mobility/parking
+2022-05-31,-21.97,820.9,leisure/food
+2022-05-31,-59.02,842.87,leisure/food
+2022-05-31,-15.9,901.89,living expenses/groceries
+2022-05-30,-26.0,917.79,vacation/various
+2022-05-30,-44.0,943.79,leisure/food
+2022-05-30,-30.88,987.79,living expenses/groceries
+2022-05-27,-29.0,1018.67,leisure/food
+2022-05-25,-25.38,1047.67,living expenses/groceries
+2022-05-24,-33.97,1073.05,mobility/gas
+2022-05-23,-149.0,1107.02,leisure/going out
+2022-05-23,36.64,1256.02,leisure/hobby
+2022-05-23,-96.0,1219.38,living expenses/cash
+2022-05-23,-268.6,1315.38,vacation/lodging
+2022-05-18,-20.0,1583.98,living expenses/cash
+2022-05-18,-54.57,1603.98,living expenses/groceries
+2022-05-18,-30.0,1658.55,leisure/food
+2022-05-16,-35.32,1688.55,living expenses/groceries
+2022-05-16,-77.03,1723.87,mobility/gas
+2022-05-13,-36.64,1800.9,leisure/hobby
+2022-05-12,-6.8,1837.54,leisure/food
+2022-05-12,-4.08,1844.34,living expenses/phone
+2022-05-10,-5.8,1848.42,leisure/food
+2022-05-10,-49.6,1854.22,living expenses/groceries
+2022-05-09,-47.83,1903.82,living expenses/groceries
+2022-05-05,-30.91,1951.65,living expenses/groceries
+2022-05-02,-75.99,1982.56,flat/ancillary costs
+2022-05-02,-70.0,2058.55,living expenses/cash
+2022-05-02,-17.79,2128.55,living expenses/groceries
+2022-05-02,-27.72,2146.34,living expenses/groceries
+2022-05-02,-85.0,2174.06,mobility/parking
+2022-05-02,-1000.0,2259.06,flat/rent
+2022-05-02,-70.0,3259.06,leisure/food
+2022-05-01,2700.0,3329.06,income
+2022-04-29,-5.0,629.06,leisure/food
+2022-04-28,-50.0,634.06,living expenses/groceries
+2022-04-28,-150.0,684.06,living expenses/cash
+2022-04-28,-8.83,834.06,living expenses/groceries
+2022-04-25,-39.98,842.89,living expenses/groceries
+2022-04-20,-39.23,882.87,living expenses/groceries
+2022-04-20,-48.85,922.1,mobility/gas
+2022-04-14,-3.99,970.95,living expenses/phone
+2022-04-14,-1250.0,974.94,mobility/bicycle
+2022-04-13,-25.48,2224.94,mobility/bicycle
+2022-04-12,-18.75,2250.42,leisure/hobby
+2022-04-12,-85.0,2269.17,mobility/parking
+2022-04-11,-33.05,2354.17,living expenses/groceries
+2022-04-08,-35.0,2387.22,living expenses/cash
+2022-04-08,-10.0,2422.22,leisure/food
+2022-04-08,-65.0,2432.22,leisure/food
+2022-04-06,-35.0,2497.22,leisure/food
+2022-04-06,-4.2,2532.22,living expenses/groceries
+2022-04-05,-119.0,2536.42,flat/furniture
+2022-04-05,-18.47,2655.42,living expenses/groceries
+2022-04-04,-14.99,2673.89,leisure/hobby
+2022-04-04,-36.17,2688.88,living expenses/groceries
+2022-04-01,-75.99,2725.05,flat/ancillary costs
+2022-04-01,-1000.0,2801.04,flat/rent
+2022-04-01,2700.0,3801.04,income
+2022-04-01,-13.83,1101.04,living expenses/groceries
+2022-03-30,-29.94,1114.87,flat/furniture
+2022-03-29,-47.84,1144.81,living expenses/groceries
+2022-03-28,-2.17,1192.65,leisure/hobby
+2022-03-28,-24.7,1194.82,leisure/food
+2022-03-28,-14.0,1219.52,mobility/public transport
+2022-03-28,-8.05,1233.52,living expenses/groceries
+2022-03-23,-4.32,1241.57,leisure/hobby
+2022-03-23,-323.23,1245.89,living expenses/insurance
+2022-03-23,-79.8,1569.12,living expenses/insurance
+2022-03-22,-43.2,1648.92,leisure/going out
+2022-03-22,-24.63,1692.12,leisure/hobby
+2022-03-21,-78.93,1716.75,leisure/going out
+2022-03-18,-53.84,1795.68,living expenses/groceries
+2022-03-17,-69.4,1849.52,leisure/going out
+2022-03-17,-311.7,1918.92,mobility/maintenance
+2022-03-16,-33.27,2230.62,living expenses/groceries
+2022-03-16,-81.11,2263.89,mobility/gas
+2022-03-15,-1.95,2345.0,mobility/parking
+2022-03-14,-3.99,2346.95,living expenses/phone
+2022-03-14,-1.09,2350.94,mobility/parking
+2022-03-11,-40.0,2352.03,leisure/food
+2022-03-11,-8.0,2392.03,leisure/going out
+2022-03-11,-36.32,2400.03,living expenses/groceries
+2022-03-11,-6.64,2436.35,mobility/parking
+2022-03-10,-36.9,2442.99,leisure/hobby
+2022-03-10,-118.0,2479.89,living expenses/clothes
+2022-03-10,-12.8,2597.89,living expenses/groceries
+2022-03-10,-92.85,2610.69,mobility/gas
+2022-03-09,-10.15,2703.54,leisure/food
+2022-03-09,-3.83,2713.69,leisure/hobby
+2022-03-09,-11.5,2717.52,mobility/parking
+2022-03-09,-9.4,2729.02,mobility/public transport
+2022-03-08,-22.9,2738.42,leisure/food
+2022-03-08,-9.5,2761.32,living expenses/groceries
+2022-03-08,-19.21,2770.82,living expenses/groceries
+2022-03-07,-6.26,2790.03,living expenses/groceries
+2022-03-04,-52.21,2796.29,living expenses/groceries
+2022-03-03,-1000.0,2848.5,flat/rent
+2022-03-03,-55.0,3848.5,leisure/sport
+2022-03-01,-83.11,3903.5,flat/ancillary costs
+2022-03-01,2700.0,3986.61,income
 2022-03-01,-68.0,1286.61,flat/furniture
 2022-03-01,-34.8,1354.61,living expenses/groceries
-2022-03-01,-0.85,1389.4099999999999,flat/furniture
-2022-03-01,-85.0,1390.2599999999998,mobility/parking
-2022-02-28,-30.95,1475.2599999999998,living expenses/groceries
-2022-02-25,-70.0,1506.2099999999998,mobility/gas
-2022-02-23,-89.0,1576.2099999999998,living expenses/presents
-2022-02-22,-45.57,1665.2099999999998,living expenses/groceries
-2022-02-21,-37.81,1710.7799999999997,living expenses/groceries
-2022-02-17,-17.78,1748.5899999999997,living expenses/groceries
-2022-02-14,-3.99,1766.3699999999997,living expenses/phone
-2022-02-07,-27.5,1770.3599999999997,living expenses/groceries
-2022-02-04,-8.97,1797.8599999999997,living expenses/groceries
-2022-02-02,-31.67,1806.8299999999997,living expenses/groceries
-2022-02-01,-75.99,1838.4999999999998,flat/ancillary costs
-2022-02-01,-1000.0,1914.4899999999998,flat/rent
+2022-03-01,-0.85,1389.41,flat/furniture
+2022-03-01,-85.0,1390.26,mobility/parking
+2022-02-28,-30.95,1475.26,living expenses/groceries
+2022-02-25,-70.0,1506.21,mobility/gas
+2022-02-23,-89.0,1576.21,living expenses/presents
+2022-02-22,-45.57,1665.21,living expenses/groceries
+2022-02-21,-37.81,1710.78,living expenses/groceries
+2022-02-17,-17.78,1748.59,living expenses/groceries
+2022-02-14,-3.99,1766.37,living expenses/phone
+2022-02-07,-27.5,1770.36,living expenses/groceries
+2022-02-04,-8.97,1797.86,living expenses/groceries
+2022-02-02,-31.67,1806.83,living expenses/groceries
+2022-02-01,-75.99,1838.5,flat/ancillary costs
+2022-02-01,-1000.0,1914.49,flat/rent
 2022-02-01,2700.0,2914.49,income
-2022-02-01,-31.97,214.48999999999978,mobility/gas
-2022-02-01,-85.0,246.45999999999958,mobility/parking
-2022-01-31,-35.46,331.4599999999996,living expenses/groceries
-2022-01-31,13.03,366.9199999999996,mobility/maintenance
-2022-01-28,-100.0,353.8899999999999,living expenses/cash
-2022-01-28,-2.99,453.8899999999999,living expenses/groceries
-2022-01-26,-42.99,456.87999999999965,flat/furniture
-2022-01-25,-112.9,499.8699999999999,leisure/clubs
+2022-02-01,-31.97,214.49,mobility/gas
+2022-02-01,-85.0,246.46,mobility/parking
+2022-01-31,-35.46,331.46,living expenses/groceries
+2022-01-31,13.03,366.92,mobility/maintenance
+2022-01-28,-100.0,353.89,living expenses/cash
+2022-01-28,-2.99,453.89,living expenses/groceries
+2022-01-26,-42.99,456.88,flat/furniture
+2022-01-25,-112.9,499.87,leisure/clubs
 2022-01-25,-13.4,612.77,living expenses/groceries
-2022-01-24,-18.54,626.1699999999996,living expenses/groceries
+2022-01-24,-18.54,626.17,living expenses/groceries
 2022-01-21,-35.86,644.71,living expenses/groceries
-2022-01-18,-57.72,680.5699999999997,mobility/gas
+2022-01-18,-57.72,680.57,mobility/gas
 2022-01-17,-29.28,738.29,living expenses/groceries
-2022-01-17,-31.91,767.5699999999997,living expenses/groceries
-2022-01-14,-4.8,799.4799999999996,living expenses/groceries
-2022-01-13,-4.62,804.2799999999997,living expenses/phone
-2022-01-11,-19.99,808.8999999999996,leisure/hobby
-2022-01-11,-46.17,828.8899999999999,living expenses/groceries
-2022-01-06,-1000.0,875.0599999999995,flat/rent
-2022-01-06,-100.0,1875.0599999999997,living expenses/cash
-2022-01-06,-18.43,1975.0599999999997,living expenses/groceries
-2022-01-05,-85.0,1993.4899999999998,mobility/parking
+2022-01-17,-31.91,767.57,living expenses/groceries
+2022-01-14,-4.8,799.48,living expenses/groceries
+2022-01-13,-4.62,804.28,living expenses/phone
+2022-01-11,-19.99,808.9,leisure/hobby
+2022-01-11,-46.17,828.89,living expenses/groceries
+2022-01-06,-1000.0,875.06,flat/rent
+2022-01-06,-100.0,1875.06,living expenses/cash
+2022-01-06,-18.43,1975.06,living expenses/groceries
+2022-01-05,-85.0,1993.49,mobility/parking
 2022-01-03,-224.62,2078.49,flat/ancillary costs
-2022-01-03,-80.43,2303.1099999999997,flat/ancillary costs
-2022-01-03,-77.23,2383.5399999999995,living expenses/insurance
-2022-01-03,-435.95,2460.7699999999995,mobility/maintenance
-2022-01-01,2700.0,2896.7199999999993,income
+2022-01-03,-80.43,2303.11,flat/ancillary costs
+2022-01-03,-77.23,2383.54,living expenses/insurance
+2022-01-03,-435.95,2460.77,mobility/maintenance
+2022-01-01,2700.0,2896.72,income

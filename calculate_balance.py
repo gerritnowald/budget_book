@@ -33,6 +33,7 @@ transactions.sort_values(clm['date'], ascending=False, inplace = True)
 
 transactions[clm['balance']] = transactions.loc[::-1, clm['amount']].cumsum()[::-1]
 transactions[clm['balance']] = transactions[clm['balance']] - transactions.iloc[0][clm['balance']] + final_balance
+transactions[clm['balance']] = transactions[clm['balance']].round(2)
 
 #--------------------------------------------------------------------------
 # save
