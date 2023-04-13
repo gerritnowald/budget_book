@@ -16,9 +16,8 @@ A list of all categories which are currently used in the transactions file can b
 As an example for transactions, see  
 https://github.com/gerritnowald/budget_book/blob/main/transactions.csv
 
-New transactions can be appended to the database using *import_transactions.py*.  
-Also the balance over time is updated.
-
-New transactions are categorized based on the transaction text using Machine Learning in *categorize_transactions_ML*.  
+New transactions can be appended to the database using *import_transactions.ipynb*.  
+Also the balance over time is updated.  
+New transactions are categorized based on the transaction text using Machine Learning.  
 See also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/

@@ -41,9 +41,9 @@ def get_sum_cat_month(transactions, clm, next_months=3):
     next_month_lst = next_month_lst[1:]
     next_month_lst = [ str(month)[:7] for month in next_month_lst ]    # prettier index
     
-    NEXT_MONTHS = np.array(forecast)[:,np.newaxis] * np.ones(( sum_cat_month.shape[0] , next_months ))
+    NEXT_MONTHS    = np.array(forecast)[:,np.newaxis] * np.ones(( sum_cat_month.shape[0] , next_months ))
     NEXT_MONTHS_df = pd.DataFrame( NEXT_MONTHS , columns = next_month_lst , index = sum_cat_month.index  )
-    sum_cat_month = pd.concat( [ sum_cat_month , NEXT_MONTHS_df ] , axis=1 )
+    sum_cat_month  = pd.concat( [ sum_cat_month , NEXT_MONTHS_df ] , axis=1 )
     
     
     # row sum per month
@@ -56,3 +56,17 @@ def get_sum_cat_month(transactions, clm, next_months=3):
     sum_cat_month = sum_cat_month.round()
     
     return sum_cat_month
+
+def PreProcText(texts , minwordlength=3):
+    """extracts individual words from transaction text
+    input & output: pandas series"""
+    texts = texts.str.lower()
+    texts = texts.str.replace('ä','ae')
+    texts = texts.str.replace('ö','oe')
+    texts = texts.str.replace('ü','ue')
+    texts = texts.str.replace('ß','ss')
+    texts = texts.str.replace('[^a-z ]', ' ', regex=True)     # removes all non-alphabetical characters
+    texts = texts.str.split()
+    texts = texts.apply(lambda keywords: { word for word in keywords if len(word) >= minwordlength } )    # every word only once
+    texts = texts.str.join(' ')
+    return texts
