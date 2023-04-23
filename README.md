@@ -18,7 +18,8 @@ The minimal required columns are
 - description
 - amount
 
-The account balance over time has to calculated **once** using `calculate_balance.py` (the final balance has to be given).
+The account balance over time has to calculated **once** using `calculate_balance.py` 
+(the final balance has to be given).
 
 For analysis, the transactions should be categorized.  
 Two layers of categories can be used, separated with / (e.g. *living expenses/groceries*).  
