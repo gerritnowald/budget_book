@@ -2,7 +2,7 @@
 Analyzing spendings with Python &amp; Pandas,  
 categorizing banking transactions with Machine Learning
 
-![](https://github.com/gerritnowald/budget_book/tree/main/examples_blog/sunburst.png?raw=true)
+![](https://github.com/gerritnowald/budget_book/tree/main/examples_blog/sunburst.png)
 
 A finance report is generated as a Jupyter notebook:  
 https://github.com/gerritnowald/budget_book/blob/main/analysis.ipynb  
