@@ -59,7 +59,7 @@ If an online repo is used, it is **strongly** recommended to make it private and
 
 ## contributions
 
-Contributions are welcome, especially regarding additional import functions for different banks.
+Contributions are welcome, especially regarding APIs for additional banks.
 
 ## Aknowledgements
 
