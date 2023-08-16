@@ -10,20 +10,28 @@ from dateutil import relativedelta
 # -----------------------------------------------------------------------------
 # table operations
 
-def get_sum_cat_month(transactions, clm, next_months=3):
+def get_sum_cat_month(transactions, clm):
     """creates a table of spendings per month and category"""
 
+    # group by month and category
     transactions_cat = transactions.groupby(clm['category'])
-    
     sum_cat_month = ( transactions_cat
-                        .resample('1M', on=clm['date']).sum(numeric_only=True)[clm['amount']]
-                        .unstack(0).replace(0, np.nan) )
+                        .resample('1M', on=clm['date'])
+                        .sum(numeric_only=True)[clm['amount']]
+                        .unstack(0)
+                        .replace(0, np.nan) )
     
-    sum_cat_month.index = sum_cat_month.index.map(lambda date : str(date)[:7])  # prettier index
-    
+    # prettier index
+    sum_cat_month.index = sum_cat_month.index.map(lambda date : str(date)[:7])
+
     sum_cat_month = sum_cat_month.transpose()
+
+    # split categories
+    sum_cat_month[ [ clm['category'] , clm['cat_fine'] ] ] = sum_cat_month.index.to_series().str.split('/', expand=True)
+    sum_cat_month[clm['cat_fine']].replace(np.nan, '', inplace=True)
+    sum_cat_month = sum_cat_month.set_index([ clm['category'] , clm['cat_fine'] ])
     
-    
+
     # column sum per category
     sum_cat_month[clm['sum']] = sum_cat_month.sum(axis=1)
 
@@ -31,35 +39,25 @@ def get_sum_cat_month(transactions, clm, next_months=3):
     sum_cat_month[clm['mean_month']] = sum_cat_month.iloc[:,:-2].sum(axis=1)  / ( sum_cat_month.shape[1] - 2 )
 
     
-    sum_cat_month = sum_cat_month.sort_index()  # by category
-    # sum_cat_month = sum_cat_month.sort_values(clm['sum'])  # by sum
-    
-    
-    # forecast for next months
-    if next_months > 0:
-        forecast = sum_cat_month[clm['mean_month']]
-        
-        next_month_lst = [ max(transactions[clm['date']]) ]
-        for _ in range(next_months):
-            next_month_lst.append( max(next_month_lst) + relativedelta.relativedelta(months=1) )
-        next_month_lst = next_month_lst[1:]
-        next_month_lst = [ str(month)[:7] for month in next_month_lst ]    # prettier index
-        
-        NEXT_MONTHS    = np.array(forecast)[:,np.newaxis] * np.ones(( sum_cat_month.shape[0] , next_months ))
-        NEXT_MONTHS_df = pd.DataFrame( NEXT_MONTHS , columns = next_month_lst , index = sum_cat_month.index  )
-        sum_cat_month  = pd.concat( [ sum_cat_month , NEXT_MONTHS_df ] , axis=1 )
+    # sum_cat_month = sum_cat_month.sort_index()  # by category
+    # sum_cat_month = sum_cat_month.sort_values(clm['sum'], ascending=False)  # by sum
     
     
     # row expenses (sum of negatives)
-    sum_cat_month = pd.concat([ sum_cat_month , sum_cat_month[sum_cat_month<0].sum().rename(clm['expenses']).to_frame().T ])   # after sorting
-    
+    sum_cat_month = pd.concat([ sum_cat_month , 
+        pd.DataFrame( [sum_cat_month[sum_cat_month < 0].sum()] , 
+            columns = sum_cat_month.columns , index = [(clm['expenses'], '')] )
+        ])
+
     # row balance per month
-    sum_cat_month = pd.concat([ sum_cat_month , sum_cat_month.drop(clm['expenses'],axis=0).sum().rename(clm['sum']).to_frame().T ])
+    sum_cat_month = pd.concat([ sum_cat_month , 
+        pd.DataFrame( [sum_cat_month.drop(clm['expenses'], axis=0, level=0).sum()] , 
+            columns = sum_cat_month.columns , index = [(clm['sum'], '')] )
+        ])
+
+    sum_cat_month.index = sum_cat_month.index.rename([clm['category'],clm['cat_fine']])
     
-    
-    sum_cat_month = sum_cat_month.round()
-    
-    return sum_cat_month
+    return sum_cat_month.round()
 
 # -----------------------------------------------------------------------------
 # text processing
@@ -79,7 +77,7 @@ def PreProcText(texts , minwordlength=3):
     return texts
 
 # -----------------------------------------------------------------------------
-# comdirect API transaction import
+# transaction import via comdirect API
 # adapted from https://github.com/phpanhey/comdirect_financialreport
 
 import requests
@@ -286,7 +284,7 @@ def transactions_API_comdirect(clm, pastDays = 30):
     return df
 
 # -----------------------------------------------------------------------------
-# csv transaction import
+# transaction import from csv
 
 def transactions_csv(file, clm, header=2):
     df = pd.read_csv( file + '.csv', encoding = 'ISO-8859-1', sep =';', decimal=',', thousands='.', header=header )
