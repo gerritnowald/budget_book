@@ -44,16 +44,15 @@ def get_sum_cat_month(transactions, clm):
     
     
     # row expenses (sum of negatives)
-    sum_cat_month = pd.concat([ sum_cat_month , 
-        pd.DataFrame( [sum_cat_month[sum_cat_month < 0].sum()] , 
+    expenses = pd.DataFrame( [sum_cat_month[sum_cat_month < 0].sum()] , 
             columns = sum_cat_month.columns , index = [(clm['expenses'], '')] )
-        ])
-
+    
     # row balance per month
-    sum_cat_month = pd.concat([ sum_cat_month , 
-        pd.DataFrame( [sum_cat_month.drop(clm['expenses'], axis=0, level=0).sum()] , 
+    balance = pd.DataFrame( [sum_cat_month.sum()] , 
             columns = sum_cat_month.columns , index = [(clm['sum'], '')] )
-        ])
+
+    sum_cat_month = pd.concat([ sum_cat_month, expenses, balance ])
+
 
     sum_cat_month.index = sum_cat_month.index.rename([clm['category'],clm['cat_fine']])
     
