@@ -14,12 +14,11 @@ def get_sum_cat_month(transactions, clm):
     """creates a table of spendings per month and category"""
 
     # group by month and category
-    transactions_cat = transactions.groupby(clm['category'])
-    sum_cat_month = ( transactions_cat
+    sum_cat_month = ( transactions
+                        .groupby(clm['category'])
                         .resample('1M', on=clm['date'])
                         .sum(numeric_only=True)[clm['amount']]
-                        .unstack(0)
-                        .replace(0, np.nan) )
+                        .unstack(0) )
     
     # prettier index
     sum_cat_month.index = sum_cat_month.index.map(lambda date : str(date)[:7])
@@ -56,7 +55,7 @@ def get_sum_cat_month(transactions, clm):
 
     sum_cat_month.index = sum_cat_month.index.rename([clm['category'],clm['cat_fine']])
     
-    return sum_cat_month.round()
+    return sum_cat_month.round().replace(0, np.nan)
 
 # -----------------------------------------------------------------------------
 # text processing
