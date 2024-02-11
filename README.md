@@ -2,17 +2,21 @@
 Analyzing spendings with Python &amp; Pandas,  
 categorizing banking transactions with Machine Learning
 
-![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/examples_blog/sunburst.webp)
+![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/sunburst.webp)
 
 A finance report is generated as a Jupyter notebook:  
 https://github.com/gerritnowald/budget_book/blob/main/analysis.ipynb  
 See also this blog post:  
 https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pandas/
 
+## disclaimer
+
+I started this personal project as the German comdirect bank abolished their online budget planer "Finzanzmanager". It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank which allows to export transactions as csv files. For the comdirect bank, also an API access is available, which I adopted from Philipp Panhey (see below). I decided to publish this project, since I thought that might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
+
 ## initial setup
 
 Initially, transactions are exported from online banking as a csv file.  
-These form the database.  
+These form the database, stored locally on your harddrive.  
 The minimal required columns are
 - date
 - amount
@@ -35,7 +39,7 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 ## how to use
 
 New transactions are appended to the database using `import_transactions.ipynb`.  
-They can also be imported from a csv file.  
+They can be imported from a csv file.  
 Alternatively, an API import is available for the German *comdirect bank*.
 
 The transactions are categorized based on their description text using Machine Learning, see also this blog post:  

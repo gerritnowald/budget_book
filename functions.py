@@ -5,7 +5,6 @@
 
 import pandas as pd
 import numpy as np
-from dateutil import relativedelta
 
 # -----------------------------------------------------------------------------
 # table operations
@@ -279,17 +278,4 @@ def transactions_API_comdirect(clm, pastDays = 30):
     access_credentials = authenticate_api()
     transactions = get_transactions(access_credentials, pastDays)
     df = convert2dataframe(transactions, clm)
-    return df
-
-# -----------------------------------------------------------------------------
-# transaction import from csv
-
-def transactions_csv(file, clm, header=2):
-    df = pd.read_csv( file + '.csv', encoding = 'ISO-8859-1', sep =';', decimal=',', thousands='.', header=header )
-    df = df.dropna(how='all', axis=1)
-    df = df.drop(['Valuta'], axis=1)
-    df = df.rename({'day'          : clm['date'],
-                    'amount in EUR': clm['amount']}, axis=1)
-    df[clm['date']] = pd.to_datetime( df[clm['date']] , format='%d.%m.%Y', errors='coerce' )
-    df = df.dropna(how='any', axis=0)
     return df
