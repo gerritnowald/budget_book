@@ -11,7 +11,7 @@ https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pand
 
 ## disclaimer
 
-I started this personal project as the German comdirect bank abolished their online budget planer "Finzanzmanager". It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank which allows to export transactions as csv files. For the comdirect bank, also an API access is available, which I adopted from Philipp Panhey (see below). I decided to publish this project, since I thought that might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
+I started this personal project as the German comdirect bank abolished their online budget planer "Finzanzmanager". It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank which allows to export transactions as csv files. For the comdirect bank, also an API access is available, which I adopted from Philipp Panhey (see below). I decided to publish this project, since I thought that it might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
 
 ## initial setup
 
@@ -65,7 +65,7 @@ If an online repo is used, it is **strongly** recommended to make it private and
 
 Contributions are welcome, especially regarding APIs for additional banks.
 
-## Aknowledgements
+## aknowledgements
 
 thanks to Philipp Panhey for the comdirect API access:  
 https://github.com/phpanhey/comdirect_financialreport  
