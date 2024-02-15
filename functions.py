@@ -96,7 +96,7 @@ def callback_tan_push():
 
 def authenticate_api():
     # oauth procedure copied from https://github.com/keisentraut/python-comdirect-api
-    config = json.loads(open("config.json", "r").read())
+    config = json.loads(open("config_comdirectAPI.json", "r").read())
 
     # POST /oauth/token
     response = requests.post(
