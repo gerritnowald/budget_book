@@ -12,7 +12,7 @@ import functions
 def main(stdscr):
 
     # load config file
-    with open("config.yml", "r") as ymlfile:
+    with open("config.ini", "r") as ymlfile:
         cfg = yaml.safe_load(ymlfile)
     clm = cfg['column names database']
 
@@ -40,6 +40,7 @@ def main(stdscr):
     x_category   = 20
     x_float      = 9
     x_text       = x_max - x_category - 2*x_float - 18
+    # x_text = 0
 
     # Print header
     stdscr.addstr(0, 0, '———— categorize & split transactions '.ljust(x_max,'—'))
@@ -68,6 +69,7 @@ def main(stdscr):
             else:
                 attr = curses.A_NORMAL
             text     = row[clm['text']    ].ljust(x_text    )[:x_text    ]
+            # text = ''
             category = row[clm['category']].ljust(x_category)[:x_category]
             
             stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)
@@ -152,7 +154,7 @@ def main(stdscr):
             if change:  # save database
                 df = df.astype(str)
                 df = df.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-                df[clm['type']] = df[clm['type']].replace(to_replace = "nan", value = "", regex = True)
+                # df[clm['type']] = df[clm['type']].replace(to_replace = "nan", value = "", regex = True)
                 df.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
             break
         

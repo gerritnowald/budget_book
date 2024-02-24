@@ -37,5 +37,5 @@ transactions[clm['balance']] = transactions[clm['balance']].round(2)
 transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
 transactions = transactions.astype(str)
 transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "", regex = True)
+# transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "", regex = True)
 transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
