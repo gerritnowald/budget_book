@@ -50,7 +50,8 @@ A list of all currently used categories is automatically saved as `categories.cs
 Also the balance over time is updated.  
 
 Since the accuracy of the categoriziation is not perfect, wrong categories should be corrected.  
-For this, a command line interface is available, `CLI.py`.  
+For this, a command line interface is available, `CLI.py`, see also this blog post:  
+https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/  
 On Windows, it can be started using `start_CLI.bat`.  
 The command line interface can also be used to split transactions, e.g. when withdrawing cash at the supermarket.  
 Alternatively, a text editor or Excel can be used to modify the transaction database.
