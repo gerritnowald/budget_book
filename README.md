@@ -5,7 +5,7 @@ categorizing banking transactions with Machine Learning
 ![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/sunburst.webp)
 
 A finance report is generated as a Jupyter notebook:  
-https://github.com/gerritnowald/budget_book/blob/main/analysis.ipynb  
+https://github.com/gerritnowald/budget_book/blob/main/budget_book/analysis.ipynb  
 See also this blog post:  
 https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pandas/
 
@@ -33,7 +33,7 @@ This has to be done manually in the beginning, e.g. using Excel.
 Later, Machine Learning is used to automatically categorize new transactions.
 
 As an example for transactions, see  
-https://github.com/gerritnowald/budget_book/blob/main/transactions.csv  
+https://github.com/gerritnowald/budget_book/blob/main/budget_book/transactions.csv  
 (without description text)
 
 For the API import for the German *comdirect bank*, the user has to [register](https://www.comdirect.de/cms/kontakt-zugaenge-api.html) and insert the credentials into `config_comdirectAPI.json`.
