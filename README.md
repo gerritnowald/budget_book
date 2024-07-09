@@ -11,8 +11,6 @@ https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pand
 
 # contents
 
-- [introduction](#introduction)
-- [contents](#contents)
 - [disclaimer](#disclaimer)
 - [initial setup](#initial-setup)
   * [transactions database](#transactions-database)
