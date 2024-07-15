@@ -108,7 +108,9 @@ It is recommended to export the notebook (e.g. as html or pdf) regularly (e.g. y
 ## analyzing stock portfolio performance
 
 It is also possible to analyze stock portfolio performance. As an example, see
-https://github.com/gerritnowald/budget_book/blob/main/stocks/calculate_shares.ipynb
+https://github.com/gerritnowald/budget_book/blob/main/stocks/calculate_shares.ipynb  
+See also this blog post:  
+https://gerritnowald.wordpress.com/2024/07/14/tracking-stock-portfolio-value-over-time-with-yfinance-and-pandas/
 
 First, a list of stocks has to be given in `stocks/get_stock_data.ipynb`. The stock short names can be found on https://finance.yahoo.com.  
 The currency is retrieved for the given stocks and needs to be translated accordingly.
