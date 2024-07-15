@@ -37,7 +37,6 @@ https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pand
 I started this personal project as the German *comdirect bank* abolished their online budget planer *Finanzmanager*. It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank, which allows to export transactions as csv files. For the *comdirect bank*, also an API access is available, which I adopted from Philipp Panhey.  
 I decided to publish this project, since I thought that it might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
 
-[contents](#contents)
 
 # initial setup
 
@@ -72,7 +71,7 @@ Later, Machine Learning is used to automatically categorize new transactions.
 
 For the API import for the German *comdirect bank*, the user has to [register](https://www.comdirect.de/cms/kontakt-zugaenge-api.html) and insert the credentials into `budget_book/config_comdirectAPI.json`.
 
-[contents](#contents)
+[back to contents](#contents)
 
 
 # how to use
@@ -114,8 +113,11 @@ https://github.com/gerritnowald/budget_book/blob/main/stocks/calculate_shares.ip
 First, a list of stocks has to be given in `stocks/get_stock_data.ipynb`. The stock short names can be found on https://finance.yahoo.com.  
 The currency is retrieved for the given stocks and needs to be translated accordingly.
 
-Then, `stocks/calculate_shares.ipynb` is used to extract the stock transactions from the database `budget_book/transactions.csv`.  
-The aquired shares are calculated and the value over time is plotted.
+Then, `stocks/get_stock_transactions.ipynb` is used to extract the stock transactions from the database `budget_book/transactions.csv`.  
+They are saved in `stocks/stock_transactions.csv`.  
+The list of stock transactions `stocks/stock_transactions.csv` can also be provided directly, e.g. if no full list of transactions is available.
+
+The aquired shares are calculated and the value over time is plotted in `stocks/calculate_shares.ipynb`.
 
 
 ## backup
@@ -123,7 +125,7 @@ The aquired shares are calculated and the value over time is plotted.
 Git can be used as backup.  
 If an online repo is used, it is **strongly** recommended to make it private and to exclude `budget_book/config_comdirectAPI.json`.
 
-[contents](#contents)
+[back to contents](#contents)
 
 
 # dependencies
@@ -142,4 +144,4 @@ Contributions are welcome, especially regarding APIs for additional banks.
 thanks to Philipp Panhey for the comdirect API access:  
 https://github.com/phpanhey/comdirect_financialreport  
 
-[contents](#contents)
+[back to contents](#contents)
