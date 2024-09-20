@@ -56,6 +56,20 @@ def get_sum_cat_month(transactions, clm):
     
     return sum_cat_month.round().replace(0, np.nan)
 
+
+
+def df_plots(sum_cat_month, clm):
+    df_plot_fine = sum_cat_month.T.drop([ clm['sum'], clm['mean_month'] ])
+
+    df_plot_rough = df_plot_fine.T.drop([ clm['expenses'], clm['sum'] ], level=0)
+    df_plot_rough = df_plot_rough.groupby(clm['category']).sum().T
+
+    df_sunburst = sum_cat_month[[clm['sum']]].drop([ clm['expenses'], clm['sum'] ], level=0).reset_index()
+    df_sunburst = df_sunburst[ df_sunburst[clm['sum']] < 0]
+    df_sunburst[clm['sum']] = df_sunburst[clm['sum']].abs()
+
+    return df_plot_fine, df_plot_rough, df_sunburst
+
 # -----------------------------------------------------------------------------
 # text processing
 
@@ -262,8 +276,10 @@ def convert2dataframe(transactions, clm):
         if transaction['creditor'] is not None:
             text += transaction['creditor']['holderName'] + ' '
         text += transaction['remittanceInfo'] + ' '
+        text.replace(',', '.')  # avoid conflicts with csv reading
 
-        df.append([ transaction['bookingDate'], transaction['transactionType']['text'], text, transaction["amount"]["value"] ])
+        # df.append([ transaction['bookingDate'], transaction['transactionType']['text'], text, transaction["amount"]["value"] ])
+        df.append([ transaction['valutaDate'], transaction['transactionType']['text'], text, transaction["amount"]["value"] ])
     
     df = pd.DataFrame(df, columns=[clm['date'], clm['type'], clm['text'], clm['amount']])
 
