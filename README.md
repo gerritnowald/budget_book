@@ -1,5 +1,5 @@
 # introduction
-Analyzing spendings & stock investments with Python &amp; Pandas,  
+Analyzing spendings with Python &amp; Pandas,  
 categorizing banking transactions with Machine Learning
 
 ![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/sunburst.webp)
@@ -107,7 +107,10 @@ It is recommended to export the notebook (e.g. as html or pdf) regularly (e.g. y
 
 ## analyzing stock portfolio performance
 
-It is also possible to analyze stock portfolio performance. As an example, see
+It is also possible to analyze stock portfolio performance.  
+However, it is not very stable due to yahoo finance and a professional solution such as https://www.portfolio-performance.info/en/ is recommended.
+
+As an example, see:  
 https://github.com/gerritnowald/budget_book/blob/main/stocks/calculate_shares.ipynb  
 See also this blog post:  
 https://gerritnowald.wordpress.com/2024/07/14/tracking-stock-portfolio-value-over-time-with-yfinance-and-pandas/
