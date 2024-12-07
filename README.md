@@ -21,7 +21,7 @@ https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pand
   * [managing banking transactions](#managing-banking-transactions)
     + [import](#import)
     + [categorization](#categorization-1)
-    + [command line interface](#command-line-interface)
+    + [console user interface](#console-user-interface)
   * [creating a spendings report](#creating-a-spendings-report)
   * [analyzing stock portfolio performance](#analyzing-stock-portfolio-performance)
   * [backup](#backup)
@@ -91,13 +91,13 @@ https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-wi
 A list of all currently used categories is automatically saved as `budget_book/categories.csv`.  
 Also the balance over time is updated.  
 
-### command line interface
+### console user interface
 
 Since the accuracy of the categoriziation is not perfect, wrong categories should be corrected.  
-For this, a command line interface is available, `budget_book/CLI.py`, see also this blog post:  
+For this, a console user interface is available, `budget_book/transaction_editor.py`, see also this blog post:  
 https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/  
-On Windows, it can be started using `budget_book/start_CLI.bat`.  
-The command line interface can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
+On Windows, it can be started using `budget_book/Windows_start_transaction_editor.bat`.  
+The console user interface can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
 
 ## spendings report
 
@@ -134,7 +134,7 @@ If an online repo is used, it is **strongly** recommended to make it private and
 
 - Pandas
 - plotly (for sunburst diagram)
-- curses (for command line interface)
+- curses (for console user interface)
 - yfinance (to retrieve stock data)
 
 # contributions
