@@ -142,6 +142,7 @@ If an online repo is used, it is **strongly** recommended to make it private and
 
 - Pandas
 - plotly (for sunburst diagram)
+- sklearn (for categorization)
 - curses (for console user interface)
 - yfinance (to retrieve stock data)
 
