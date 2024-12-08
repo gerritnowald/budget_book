@@ -4,12 +4,18 @@ import curses
 import pandas as pd
 import numpy as np
 
+import argparse
 import yaml
 from joblib import load
 
 import functions
 
 def main(stdscr):
+
+    # argparse
+    parser = argparse.ArgumentParser(description="modify transactions")
+    parser.add_argument("-r", "--row", type=int, default=0, help="start line")
+    args = parser.parse_args()
 
     # load config file
     with open("config.ini", "r") as ymlfile:
@@ -40,7 +46,6 @@ def main(stdscr):
     x_category   = 20
     x_float      = 9
     x_text       = x_max - x_category - 2*x_float - 18
-    # x_text = 0
 
     # Print header
     stdscr.addstr(0, 0, '———— categorize & split transactions '.ljust(x_max,'—'))
@@ -56,8 +61,8 @@ def main(stdscr):
     stdscr.addstr(y_max - 2, 0, ''.ljust(x_max,'—'))
 
     # initialization
-    current_row = 0
-    top_row     = 0
+    current_row = args.row
+    top_row     = max([current_row - y_entries + 1 , 0])
     change      = False   # only save if data changed
 
     # main loop for transactions
@@ -69,7 +74,6 @@ def main(stdscr):
             else:
                 attr = curses.A_NORMAL
             text     = row[clm['text']    ].ljust(x_text    )[:x_text    ]
-            # text = ''
             category = row[clm['category']].ljust(x_category)[:x_category]
             
             stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)

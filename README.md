@@ -81,8 +81,11 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 ### import
 
 New transactions are appended to the database using `budget_book/import_transactions.ipynb`.  
-One option is to import them from a csv file.  
-Alternatively, an API import is available for the German *comdirect bank*.
+One option is to import them from a csv file. A code example is provided which can be adapted in the interactive Jupyter environment.
+
+Alternatively, an API import is available for the German *comdirect bank*.  
+For the latter, the script `budget_book/transaction_importer.py` can also be used, which can be run in batch mode without Jupyter and has an optional argument to test the classifier.  
+On Windows, it can be started using `budget_book/Windows_start_transaction_importer.bat`.  
 
 ### categorization
 
@@ -97,6 +100,8 @@ Since the accuracy of the categoriziation is not perfect, wrong categories shoul
 For this, a console user interface is available, `budget_book/transaction_editor.py`, see also this blog post:  
 https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/  
 On Windows, it can be started using `budget_book/Windows_start_transaction_editor.bat`.  
+Running `budget_book/transaction_importer.py` also runs the console user interface after downloading and classifying new transactions.
+
 The console user interface can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
 
 ## spendings report
