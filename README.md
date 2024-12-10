@@ -91,12 +91,11 @@ which is using the *comdirect bank* API.
 Also the balance over time is updated.  
 
 Alternatively, they can also be read from an exported csv file.  
-To adapt the csv import code example, `budget_book/test_import_transactions.ipynb` can be used in the interactive Jupyter environment.  
-The final code can be inserted into the function `def transactions_CSV` in `budget_book/transaction_importer.py`.
+A code example is provided in `budget_book/test_import_transactions.ipynb`, which can be adapted in the interactive Jupyter environment.  
+The final code can then be inserted into the function `def transactions_CSV()` in `budget_book/transaction_importer.py`.
 
 ### categorization
 
-Calling
 ```
 python transaction_categorizer.py 
 ```
@@ -133,7 +132,7 @@ See also this blog post: https://gerritnowald.wordpress.com/2023/02/23/managing-
 
 ## analyzing stock portfolio performance
 
-It is also possible to analyze stock portfolio performance.  
+Also, scripts to analyze stock portfolio performance are included.  
 However, it is not very stable due to yahoo finance and a professional solution such as https://www.portfolio-performance.info/en/ is recommended.
 
 As an example, see:  
