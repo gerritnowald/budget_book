@@ -1,4 +1,6 @@
 python transaction_importer.py
-@REM python transaction_importer.py -t
+
+python transaction_categorizer.py
+@REM python transaction_categorizer.py -t
 
 pause

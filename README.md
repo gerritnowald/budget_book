@@ -6,8 +6,6 @@ categorizing banking transactions with Machine Learning
 
 Finance report example:  
 https://github.com/gerritnowald/budget_book/blob/main/budget_book/analysis.ipynb  
-See also this blog post:  
-https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pandas/
 
 # contents
 
@@ -34,7 +32,7 @@ https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pand
 
 # disclaimer
 
-I started this personal project as the German *comdirect bank* abolished their online budget planer *Finanzmanager*. It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank, which allows to export transactions as csv files. For the *comdirect bank*, also an API access is available, which I adopted from Philipp Panhey.  
+I started this personal project as the German *comdirect bank* abolished their online budget planer *Finanzmanager*. It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank, which allows to export transactions as csv files. For the *comdirect bank*, the API access can be used, which I adopted from Philipp Panhey ([acknowledgements](#acknowledgements)).  
 I decided to publish this project, since I thought that it might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
 
 
@@ -44,7 +42,7 @@ General settings such as file names & column names have to be set in `budget_boo
 
 ## transactions database
 
-Initially, transactions are exported from online banking as a csv file.  
+Initially, transactions (e.g. from the last year) are exported from online banking as a csv file.  
 These form the database, stored locally on your hard drive.  
 The minimal required columns are
 - date
@@ -57,8 +55,10 @@ https://github.com/gerritnowald/budget_book/blob/main/budget_book/transactions.c
 
 ## account balance
 
-The account balance over time has to calculated **once** using `budget_book/calculate_balance.py`  
-(the final balance has to be given in `budget_book/config.ini`).
+The account balance over time has to calculated **once** using `budget_book/calculate_balance.py`.
+```
+python calculate_balance.py -b FINAL_BALANCE
+```
 
 ## categorization
 
@@ -78,37 +78,58 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 
 ## managing banking transactions
 
+New transactions are merged to the database & categorized using three standalone scripts running in batch mode.  
+They can be used independently or in sequence, the latter by calling `budget_book/Windows_start_transaction_importer.bat`.
+
 ### import
 
-New transactions are appended to the database using `budget_book/import_transactions.ipynb`.  
-One option is to import them from a csv file. A code example is provided which can be adapted in the interactive Jupyter environment.
+New transactions are appended to the database using
+```
+python transaction_importer.py
+```
+which is using the *comdirect bank* API.  
+Also the balance over time is updated.  
 
-Alternatively, an API import is available for the German *comdirect bank*.  
-For the latter, the script `budget_book/transaction_importer.py` can also be used, which can be run in batch mode without Jupyter and has an optional argument to test the classifier.  
-On Windows, it can be started using `budget_book/Windows_start_transaction_importer.bat`.  
+Alternatively, they can also be read from an exported csv file.  
+To adapt the csv import code example, `budget_book/test_import_transactions.ipynb` can be used in the interactive Jupyter environment.  
+The final code can be inserted into the function `def transactions_CSV` in `budget_book/transaction_importer.py`.
 
 ### categorization
 
-The transactions are categorized based on their description text using Machine Learning, see also this blog post:  
+Calling
+```
+python transaction_categorizer.py 
+```
+categorizes the transactions based on their description text using Machine Learning, see also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/  
 A list of all currently used categories is automatically saved as `budget_book/categories.csv`.  
-Also the balance over time is updated.  
+
+```
+python transaction_categorizer.py -t
+```
+determines the model prediction accuracy.  
 
 ### console user interface
 
 Since the accuracy of the categoriziation is not perfect, wrong categories should be corrected.  
-For this, a console user interface is available, `budget_book/transaction_editor.py`, see also this blog post:  
-https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/  
-On Windows, it can be started using `budget_book/Windows_start_transaction_editor.bat`.  
-Running `budget_book/transaction_importer.py` also runs the console user interface after downloading and classifying new transactions.
+For this, a console user interface is available
+```
+python transaction_editor.py
+```
+see also this blog post:  
+https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/
 
-The console user interface can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
+It can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
+
+The console user interface is automatically run after `budget_book/transaction_categorizer.py`.  
+The pre-selected line highlights the last previously appended transaction.
 
 ## spendings report
 
 The spendings report can be updated by running `budget_book/analysis.ipynb`.  
 Reports for different time frames can be generated by filtering the database.  
-It is recommended to export the notebook (e.g. as html or pdf) regularly (e.g. yearly) for later reference.
+It is recommended to export the notebook (e.g. as html or pdf) regularly (e.g. yearly) for later reference.  
+See also this blog post: https://gerritnowald.wordpress.com/2023/02/23/managing-spending-with-python-pandas/
 
 ## analyzing stock portfolio performance
 

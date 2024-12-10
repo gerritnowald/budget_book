@@ -1,3 +1,8 @@
+"""
+Console user interface to browse & modify transactions:
+- change category
+- split transaction """
+
 # pip install windows-curses
 import curses
 
@@ -8,7 +13,7 @@ import argparse
 import yaml
 from joblib import load
 
-import functions
+import functions    # local functions in this repository
 
 def main(stdscr):
 
@@ -74,7 +79,10 @@ def main(stdscr):
             else:
                 attr = curses.A_NORMAL
             text     = row[clm['text']    ].ljust(x_text    )[:x_text    ]
-            category = row[clm['category']].ljust(x_category)[:x_category]
+            try:
+                category = row[clm['category']].ljust(x_category)[:x_category]
+            except:
+                category = ''.ljust(x_category)[:x_category]
             
             stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)
         stdscr.refresh()
@@ -156,6 +164,7 @@ def main(stdscr):
         # quit & save
         elif key == 113:  # ASCII value of q key
             if change:  # save database
+                # date and number format are adjusted that they don't conflict with saving the database using Excel.
                 df = df.astype(str)
                 df = df.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
                 # df[clm['type']] = df[clm['type']].replace(to_replace = "nan", value = "", regex = True)
