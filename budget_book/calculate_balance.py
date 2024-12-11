@@ -8,51 +8,46 @@ import pandas as pd
 import argparse
 import yaml
 
+# -----------------------------------------------------------------------------------
+# argparse
 
-def main():
+parser = argparse.ArgumentParser(description="update balance over time")
+parser.add_argument("balance", type=float, help="final balance")
+args = parser.parse_args()
 
-    # -----------------------------------------------------------------------------------
-    # argparse
+#------------------------------------------------------------------------------
+# read settings from config file
 
-    parser = argparse.ArgumentParser(description="update balance over time")
-    parser.add_argument("balance", type=float, help="final balance")
-    args = parser.parse_args()
+with open("config.ini", "r") as ymlfile:
+    cfg = yaml.safe_load(ymlfile)
 
-    #------------------------------------------------------------------------------
-    # read settings from config file
+clm = cfg['column names database']
 
-    with open("config.ini", "r") as ymlfile:
-        cfg = yaml.safe_load(ymlfile)
+#------------------------------------------------------------------------------
+# load data
 
-    clm = cfg['column names database']
+transactions = pd.read_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1")
 
-    #------------------------------------------------------------------------------
-    # load data
+transactions[clm['date']] = pd.to_datetime(transactions[clm['date']], format = cfg['date format'])
 
-    transactions = pd.read_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1")
+#------------------------------------------------------------------------------
+# calculate balance
 
-    transactions[clm['date']] = pd.to_datetime(transactions[clm['date']], format = cfg['date format'])
+# sort to prevent negative balance due to same day transactions
+transactions.sort_values([clm['date'], clm['amount']], ascending = [False, True], inplace = True)
 
-    #------------------------------------------------------------------------------
-    # calculate balance
+transactions[clm['balance']] = transactions.loc[::-1, clm['amount']].cumsum()[::-1]
+transactions[clm['balance']] = transactions[clm['balance']] - transactions.loc[0,clm['balance']] + args.balance
+transactions[clm['balance']] = transactions[clm['balance']].round(2)
 
-    # sort to prevent negative balance due to same day transactions
-    transactions.sort_values([clm['date'], clm['amount']], ascending = [False, True], inplace = True)
+print('balance over time updated.')
 
-    transactions[clm['balance']] = transactions.loc[::-1, clm['amount']].cumsum()[::-1]
-    transactions[clm['balance']] = transactions[clm['balance']] - transactions.loc[0,clm['balance']] + args.balance
-    transactions[clm['balance']] = transactions[clm['balance']].round(2)
+#--------------------------------------------------------------------------
+# save
+# The date and number format are adjusted that they don't conflict with saving the database using Excel.
 
-    #--------------------------------------------------------------------------
-    # save
-    # The date and number format are adjusted that they don't conflict with saving the database using Excel.
-
-    transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
-    transactions = transactions.astype(str)
-    transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-    # transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "", regex = True)
-    transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
-
-
-if __name__ == "__main__":
-    main()
+transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
+transactions = transactions.astype(str)
+transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
+# transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "", regex = True)
+transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)

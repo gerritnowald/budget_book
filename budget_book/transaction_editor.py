@@ -198,5 +198,4 @@ def main(stdscr):
             break
 
 
-if __name__ == "__main__":
-    curses.wrapper(main)
+curses.wrapper(main)
