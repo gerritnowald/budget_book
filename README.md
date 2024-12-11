@@ -57,7 +57,7 @@ https://github.com/gerritnowald/budget_book/blob/main/budget_book/transactions.c
 
 The account balance over time has to calculated **once** using `budget_book/calculate_balance.py`.
 ```
-python calculate_balance.py -b FINAL_BALANCE
+python calculate_balance.py FINAL_BALANCE
 ```
 
 ## categorization

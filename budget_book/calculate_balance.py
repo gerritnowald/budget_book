@@ -15,7 +15,7 @@ def main():
     # argparse
 
     parser = argparse.ArgumentParser(description="update balance over time")
-    parser.add_argument("-b", "--balance", type=int, default=0, help="final balance")
+    parser.add_argument("balance", type=int, default=0, help="final balance")
     args = parser.parse_args()
 
     #------------------------------------------------------------------------------
