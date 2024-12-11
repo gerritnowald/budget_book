@@ -15,22 +15,28 @@ from joblib import load
 
 import functions    # local functions in this repository
 
+
 def main(stdscr):
 
+    # -----------------------------------------------------------------------------------
     # argparse
+
     parser = argparse.ArgumentParser(description="modify transactions")
     parser.add_argument("-r", "--row", type=int, default=0, help="start line")
     args = parser.parse_args()
 
-    # load config file
+    # -----------------------------------------------------------------------------------
+    # load 
+
+    # config file
     with open("config.ini", "r") as ymlfile:
         cfg = yaml.safe_load(ymlfile)
     clm = cfg['column names database']
 
-    # load database
+    # database
     df = pd.read_csv(cfg['CSV filenames']['database']  + '.csv', encoding = "ISO-8859-1")
 
-    # load classifier
+    # classifier
     Nsuggest = 3    # number of category suggestions
     try:
         vectorizer, classifier = load(cfg['categorizer file'] + '.joblib')
@@ -39,6 +45,9 @@ def main(stdscr):
         with open(cfg['CSV filenames']['categories']  + '.csv', 'r') as file:
             categories = file.read().split('\n')[:-1]
         suggestions = False
+    
+    # -----------------------------------------------------------------------------------
+    # settings
     
     # print settings
     curses.curs_set(0)  # Hide the cursor
@@ -52,7 +61,9 @@ def main(stdscr):
     x_float      = 9
     x_text       = x_max - x_category - 2*x_float - 18
 
+    # -----------------------------------------------------------------------------------
     # Print header
+
     stdscr.addstr(0, 0, '———— categorize & split transactions '.ljust(x_max,'—'))
     stdscr.addstr(1, 0, ' UP / DOWN to navigate')
     stdscr.addstr(2, 0, ' ESC to quit / abort')
@@ -65,12 +76,14 @@ def main(stdscr):
     stdscr.addstr(6, x_text + x_category + x_float + 18, ' balance ')
     stdscr.addstr(y_max - 2, 0, ''.ljust(x_max,'—'))
 
+    # -----------------------------------------------------------------------------------
+    # main loop for transactions
+    
     # initialization
     current_row = args.row
     top_row     = max([current_row - y_entries + 1 , 0])
     change      = False   # only save if data changed
-
-    # main loop for transactions
+    
     while True:
         # Print DataFrame rows
         for i, (_, row) in enumerate(df.iloc[top_row : top_row + y_entries].iterrows()):
@@ -85,12 +98,15 @@ def main(stdscr):
                 category = ''.ljust(x_category)[:x_category]
             
             stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)
+            
         stdscr.refresh()
 
         # Wait for user input
         key = stdscr.getch()
 
+        # -----------------------------------------------------------------------------------
         # navigate main loop
+
         if key == curses.KEY_UP:
             current_row = max(0, current_row - 1)
             if current_row - top_row < 0:
@@ -100,7 +116,9 @@ def main(stdscr):
             if current_row - top_row > y_entries - 1:
                 top_row += 1
         
+        # -----------------------------------------------------------------------------------
         # split transaction
+
         elif key == 115:  # ASCII value of s key
             curses.echo()
             stdscr.addstr(y_entries + y_header + 1, 1, "Enter new amount: ")
@@ -120,7 +138,9 @@ def main(stdscr):
                 df.loc[current_row + 1, clm['amount'] ] +=   new_amount
                 df.loc[current_row + 1, clm['balance']] +=   new_amount
         
+        # -----------------------------------------------------------------------------------
         # categorize transaction
+
         elif key == 10:  # ASCII value of Enter key
             if suggestions:
                 # text pre-processing
@@ -160,8 +180,10 @@ def main(stdscr):
                 # return without saving
                 elif key == 27:  # ASCII value of Escape key
                     break
-
+        
+        # -----------------------------------------------------------------------------------
         # quit & save
+
         elif key == 113:  # ASCII value of q key
             if change:  # save database
                 # date and number format are adjusted that they don't conflict with saving the database using Excel.

@@ -48,15 +48,17 @@ def main():
 
     # filtering out training data without detailed description text (Finanzmanager export)
     # transactions_train = transactions[ ~transactions[clm['type']].isna() ]
+    transactions_train = transactions.copy()
 
     # find transactions without categories
+    # transactions_train[clm['category']] = transactions_train[clm['category']].replace(to_replace = "", value = "nan")
     ind_uncategorized = transactions_train[transactions_train[clm['category']].isna()].index
 
     if len(ind_uncategorized) == 0 and not args.test:
         print('no transactions to classify!')
         return  # end function
 
-    transactions_train = transactions_train.drop(index=ind_uncategorized)
+    transactions_train = transactions_train.drop(index = ind_uncategorized)
 
     # -----------------------------------------------------------------------------------
     # train classifier
@@ -70,10 +72,10 @@ def main():
         ind_test  = random.sample(indices, k=int(len(indices)*0.2)) # part of data for testing
         ind_train = [i for i in indices if i not in ind_test]       # remaining data
 
-        transactions_test  = transactions_train.loc[ind_test]
+        transactions_test  = transactions_train.loc[ind_test ]
         transactions_train = transactions_train.loc[ind_train]  # overwritten
-        keywords_test  = keywords_train.loc[ind_test]
-        keywords_train = keywords_train.loc[ind_train]          # overwritten
+        keywords_test      =     keywords_train.loc[ind_test ]
+        keywords_train     =     keywords_train.loc[ind_train]  # overwritten
 
     # feature extraction
     vectorizer = CountVectorizer(ngram_range=(1,1), max_features = 500)

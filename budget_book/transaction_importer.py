@@ -6,6 +6,7 @@ import pandas as pd
 
 # -----------------------------------------------------------------------------------
 # transaction import via CSV
+# 'test_import_transactions.ipynb' can be used to develop & test
 
 def transactions_CSV(clm,cfg):
 

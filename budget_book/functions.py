@@ -59,6 +59,7 @@ def get_sum_cat_month(transactions, clm):
 
 
 def df_plots(sum_cat_month, clm):
+    """reformats the table for plotting"""
     df_plot_fine = sum_cat_month.T.drop([ clm['sum'], clm['mean_month'] ])
 
     df_plot_rough = df_plot_fine.T.drop([ clm['expenses'], clm['sum'] ], level=0)

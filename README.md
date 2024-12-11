@@ -55,7 +55,7 @@ https://github.com/gerritnowald/budget_book/blob/main/budget_book/transactions.c
 
 ## account balance
 
-The account balance over time has to calculated **once** using `budget_book/calculate_balance.py`.
+The account balance over time has to calculated **once** using
 ```
 python calculate_balance.py FINAL_BALANCE
 ```
@@ -111,7 +111,7 @@ determines the model prediction accuracy.
 ### console user interface
 
 Since the accuracy of the categoriziation is not perfect, wrong categories should be corrected.  
-For this, a console user interface is available
+For this, a console user interface is available, which can be run with
 ```
 python transaction_editor.py
 ```
