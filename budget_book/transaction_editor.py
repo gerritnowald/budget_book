@@ -92,10 +92,10 @@ def main(stdscr):
             # description text
             text = row[clm['text']]
             text = re.sub(r'\s+', ' ', text)    # Replace multiple spaces with a single space
-            text = re.sub(r'\d+', '', text)     # Remove all numbers
+            text = re.sub(r'\d+', '' , text)    # Remove all numbers
             if top_row + i == current_row:
                 attr = curses.color_pair(1)
-                offset = min([offset, max([len(text) - x_text , 0])])
+                max_offset = max([len(text) - x_text, 0])   # > 0
                 text = text.ljust(x_text)[offset:x_text + offset]
             else:
                 attr = curses.A_NORMAL
@@ -105,7 +105,7 @@ def main(stdscr):
             try:
                 category = row[clm['category']].ljust(x_category)[:x_category]
             except:
-                category = ''.ljust(x_category)[:x_category]
+                category = ''.ljust(x_category)[:x_category]    # nan
             
             stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)
             
@@ -115,9 +115,19 @@ def main(stdscr):
         key = stdscr.getch()
 
         # -----------------------------------------------------------------------------------
+        # scroll left & right
+
+        if key == curses.KEY_RIGHT:
+            if offset < max_offset:
+                offset += 1
+        elif key == curses.KEY_LEFT:
+            if offset > 0:
+                offset -= 1
+
+        # -----------------------------------------------------------------------------------
         # navigate main loop
 
-        if key == curses.KEY_UP:
+        elif key == curses.KEY_UP:
             offset = 0
             current_row = max(0, current_row - 1)
             if current_row - top_row < 0:
@@ -127,16 +137,7 @@ def main(stdscr):
             current_row = min(len(df) - 1, current_row + 1)
             if current_row - top_row > y_entries - 1:
                 top_row += 1
-        
-        # -----------------------------------------------------------------------------------
-        # scroll left & right
 
-        elif key == curses.KEY_RIGHT:
-            offset += 1
-        elif key == curses.KEY_LEFT:
-            offset -= 1
-            offset = max([offset,0])
-        
         # -----------------------------------------------------------------------------------
         # split transaction
 
