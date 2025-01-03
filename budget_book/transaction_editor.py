@@ -56,7 +56,7 @@ def main(stdscr):
     
     # row & column settings
     y_max, x_max = stdscr.getmaxyx()
-    y_header     = 7
+    y_header     = 8
     y_entries    = y_max - y_header - 2
     x_category   = 20
     x_float      = 9
@@ -66,15 +66,16 @@ def main(stdscr):
     # Print header
 
     stdscr.addstr(0, 0, '———— categorize & split transactions '.ljust(x_max,'—'))
-    stdscr.addstr(1, 0, ' UP / DOWN to navigate')
+    stdscr.addstr(1, 0, ' UP / DOWN / LEFT / RIGHT to navigate')
     stdscr.addstr(2, 0, ' ESC to quit / abort')
     stdscr.addstr(3, 0, ' ENTER to categorize transaction / confirm')
-    stdscr.addstr(4, 0, ' s to split transaction')
-    stdscr.addstr(5, 0, ' q to quit & save')
-    stdscr.addstr(6, 0, ''.ljust(x_max,'—'))
-    stdscr.addstr(6, x_text + 14, ' category ')
-    stdscr.addstr(6, x_text + x_category + 18, ' amount ')
-    stdscr.addstr(6, x_text + x_category + x_float + 18, ' balance ')
+    stdscr.addstr(4, 0, ' s to split  transaction')
+    stdscr.addstr(5, 0, ' r to remove transaction')
+    stdscr.addstr(6, 0, ' q to quit & save')
+    stdscr.addstr(7, 0, ''.ljust(x_max,'—'))
+    stdscr.addstr(7, x_text + 14, ' category ')
+    stdscr.addstr(7, x_text + x_category + 18, ' amount ')
+    stdscr.addstr(7, x_text + x_category + x_float + 18, ' balance ')
     stdscr.addstr(y_max - 2, 0, ''.ljust(x_max,'—'))
 
     # -----------------------------------------------------------------------------------
@@ -91,7 +92,6 @@ def main(stdscr):
         for i, (_, row) in enumerate(df.iloc[top_row : top_row + y_entries].iterrows()):
             # description text
             text = row[clm['text']]
-            text = re.sub(r'\s+', ' ', text)    # Replace multiple spaces with a single space
             text = re.sub(r'\d+', '' , text)    # Remove all numbers
             if top_row + i == current_row:
                 attr = curses.color_pair(1)
@@ -160,6 +160,22 @@ def main(stdscr):
                 df.loc[current_row    , clm['amount'] ]  = - new_amount
                 df.loc[current_row + 1, clm['amount'] ] +=   new_amount
                 df.loc[current_row + 1, clm['balance']] +=   new_amount
+
+        # -----------------------------------------------------------------------------------
+        # remove transaction
+
+        elif key == 114:  # ASCII value of r key
+            change = True
+
+            # calculate balance
+            df.loc[:current_row, clm['balance']] -= df.loc[ current_row, clm['amount']]
+            df.loc[:current_row, clm['balance']]  = df.loc[:current_row, clm['balance']].round(2)
+
+            # remove row
+            df = df.drop(current_row).reset_index(drop=True)
+            current_row = max(0, current_row)
+            if current_row - top_row < 0:
+                top_row -= 1
         
         # -----------------------------------------------------------------------------------
         # categorize transaction
@@ -210,11 +226,7 @@ def main(stdscr):
 
         elif key == 113:  # ASCII value of q key
             if change:  # save database
-                # date and number format are adjusted that they don't conflict with saving the database using Excel.
-                df = df.astype(str)
-                df = df.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-                # df[clm['type']] = df[clm['type']].replace(to_replace = "nan", value = "", regex = True)
-                df.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
+                functions.save_transactions_to_csv(df, clm, cfg)
             break
         
         # quit without save

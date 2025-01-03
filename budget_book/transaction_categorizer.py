@@ -122,7 +122,7 @@ print('finished categorizing new transactions')
 # save
 
 # save classifier
-dump([vectorizer,classifier], cfg['categorizer file'] + '.joblib')
+dump([vectorizer, classifier], cfg['categorizer file'] + '.joblib')
 
 # save categories
 transactionsLY = transactions[( transactions[clm['date']] >= dt(dt.today().year - 1 , dt.today().month , 1) )]
@@ -130,13 +130,7 @@ categories = pd.DataFrame( transactionsLY[clm['category']].unique() ).sort_value
 categories.to_csv( cfg['CSV filenames']['categories'] + '.csv', encoding = "ISO-8859-1", index=0, header=0 )
 
 # save transaction database
-# date and number format are adjusted that they don't conflict with saving the database using Excel.
-transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
-transactions = transactions.astype(str)
-transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-# transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "")
-transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
-print('finished saving transactions to database')
+functions.save_transactions_to_csv(transactions, clm, cfg)
 
 # -----------------------------------------------------------------------------------
 # open transaction editor

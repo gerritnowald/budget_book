@@ -71,6 +71,24 @@ def df_plots(sum_cat_month, clm):
 
     return df_plot_fine, df_plot_rough, df_sunburst
 
+
+
+def save_transactions_to_csv(transactions, clm, cfg):
+    """date and number format are adjusted that they don't conflict #
+    with saving the database using Excel."""
+    try:
+        transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
+    except:
+        pass
+    transactions = transactions.astype(str)
+    transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
+    try:
+        transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "")
+    except:
+        pass
+    transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
+    print('finished saving transactions to database')
+
 # -----------------------------------------------------------------------------
 # text processing
 

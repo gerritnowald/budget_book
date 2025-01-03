@@ -3,6 +3,16 @@ Import new transactions into the database, either from csv or via API (comdirect
 The account balance is also updated."""
 
 import pandas as pd
+import yaml
+
+# -----------------------------------------------------------------------------------
+# read settings from config file
+
+with open("config.ini", "r") as ymlfile:
+    cfg = yaml.safe_load(ymlfile)
+
+clm  = cfg['column names database']
+wait = cfg['tan time']
 
 # -----------------------------------------------------------------------------------
 # transaction import via CSV
@@ -38,6 +48,7 @@ import uuid
 import json
 import datetime
 import time
+import re
 
 
 def timestamp():
@@ -45,7 +56,6 @@ def timestamp():
 
 
 def callback_tan_push():
-    wait = 10
     print(f'{wait} seconds to confirm push tan')
     time.sleep(wait)
 
@@ -199,14 +209,9 @@ def get_transactions(access_credentials, pastDays = 30):
     account_id = access_credentials["account_id"]
     end_date   = datetime.datetime.now(datetime.timezone.utc).date()
     start_date = end_date - datetime.timedelta(days=pastDays)
-
-    res = []
-    for day in ( start_date + datetime.timedelta(n) for n in range((end_date - start_date).days + 1) ):
-        res.append( get_authorized( access_credentials,
-            f"https://api.comdirect.de/api/banking/v1/accounts/{account_id}/transactions?min-bookingDate={day}&max-bookingDate={day}&transactionState=BOOKED",
-            ).json()["values"] )   # loop necessary, since setting different min & max booking dates does not reliably fetch all transactions in this period
-    
-    return [item for sublist in res for item in sublist]
+    return get_authorized( access_credentials,
+        f"https://api.comdirect.de/api/banking/v1/accounts/{account_id}/transactions?min-bookingDate={start_date}&max-bookingDate={end_date}&transactionState=BOOKED",
+        ).json()["values"]
 
 
 def convert2dataframe(transactions, clm):
@@ -217,10 +222,10 @@ def convert2dataframe(transactions, clm):
             text += transaction['remitter']['holderName'] + ' ' 
         if transaction['creditor'] is not None:
             text += transaction['creditor']['holderName'] + ' '
-        text += transaction['remittanceInfo'] + ' '
+        text += transaction['remittanceInfo']
         text.replace(',', '.')  # avoid conflicts with csv reading
+        text = re.sub(r'\s+', ' ', text)    # Replace multiple spaces
 
-        # df.append([ transaction['bookingDate'], transaction['transactionType']['text'], text, transaction["amount"]["value"] ])
         df.append([ transaction['valutaDate'], transaction['transactionType']['text'], text, transaction["amount"]["value"] ])
     
     df = pd.DataFrame(df, columns=[clm['date'], clm['type'], clm['text'], clm['amount']])
@@ -243,7 +248,8 @@ def transactions_API_comdirect(clm, pastDays = 30):
 # transaction importer
 
 import argparse
-import yaml
+from datetime import timedelta
+from functions import save_transactions_to_csv
 
 def main():
 
@@ -252,14 +258,6 @@ def main():
     
     parser = argparse.ArgumentParser(description="append new transactions to database")
     _ = parser.parse_args()     # enable help menu
-    
-    # -----------------------------------------------------------------------------------
-    # read settings from config file
-
-    with open("config.ini", "r") as ymlfile:
-        cfg = yaml.safe_load(ymlfile)
-
-    clm = cfg['column names database']
 
     # -----------------------------------------------------------------------------------
     # transaction database
@@ -285,10 +283,9 @@ def main():
 
     # filtering time
     max_date = max(transactions[clm["date"]])
-    transactions_new = transactions_new[transactions_new[clm['date']] >= max_date]
+    transactions_new = transactions_new[transactions_new[clm['date']] >= (max_date - timedelta(days=5))]
 
     # removing overlap
-    # transactions_new = transactions.merge(transactions_new, on=[clm['type'], clm['date'], clm['text'], clm['amount']], how='right', indicator=True )
     transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount']], how='right', indicator=True )
     transactions_new = transactions_new.query('_merge == "right_only"').drop(['_merge'], axis=1)
 
@@ -309,19 +306,12 @@ def main():
     # -----------------------------------------------------------------------------------
     # merge transactions
 
-    transactions = pd.concat( [transactions_new, transactions] ).reset_index(drop=True)
+    transactions = pd.concat([transactions_new, transactions]).reset_index(drop=True)
 
     # -----------------------------------------------------------------------------------
     # save transaction database
 
-    # date and number format are adjusted that they don't conflict with saving the database using Excel.
-    transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
-    transactions = transactions.astype(str)
-    transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-    # transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "")
-    transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
-    print('finished saving transactions to database')
-
+    save_transactions_to_csv(transactions, clm, cfg)
 
 if __name__ == "__main__":
     main()
