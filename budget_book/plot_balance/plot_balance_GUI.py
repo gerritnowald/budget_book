@@ -11,7 +11,7 @@ N = 10  # start value for slider
 def load_csv():
     file_path = tk.filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
     if file_path:
-        data = pd.read_csv(file_path).iloc[::-1] # Reverse the order of the rows
+        data = pd.read_csv(file_path, encoding = 'ISO-8859-1').iloc[::-1] # Reverse the order of the rows
         
         # plot data
         ax.clear()
@@ -48,16 +48,16 @@ button = tk.Button(root, text="Load CSV", command=load_csv)
 button.pack()
 
 # figure and plot
-fig = Figure(figsize=(10, 8), dpi=100)
+fig = Figure(figsize=(5, 4), dpi=100)
 ax = fig.add_subplot(111)
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas.draw()
 canvas.get_tk_widget().pack()
 
 # sliders to adjust x-axis limits
-slider_min = tk.Scale(root, from_=0, to=N, orient=tk.HORIZONTAL, label="X min", command=update_xlim, length=400)
+slider_min = tk.Scale(root, from_=0, to=N, orient=tk.HORIZONTAL, label="X min", command=update_xlim, length=200)
 slider_min.pack()
-slider_max = tk.Scale(root, from_=0, to=N, orient=tk.HORIZONTAL, label="X max", command=update_xlim, length=400)
+slider_max = tk.Scale(root, from_=0, to=N, orient=tk.HORIZONTAL, label="X max", command=update_xlim, length=200)
 slider_max.set(N)
 slider_max.pack()
 
