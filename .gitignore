@@ -1,2 +1,5 @@
 __pycache__/
 *.joblib
+build/
+dist/
+*.spec
