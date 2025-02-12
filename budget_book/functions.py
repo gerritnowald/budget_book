@@ -15,7 +15,7 @@ def get_sum_cat_month(transactions, clm):
     # group by month and category
     sum_cat_month = ( transactions
                         .groupby(clm['category'])
-                        .resample('1M', on=clm['date'])
+                        .resample('1ME', on=clm['date'])
                         .sum(numeric_only=True)[clm['amount']]
                         .unstack(0) )
     
@@ -26,7 +26,7 @@ def get_sum_cat_month(transactions, clm):
 
     # split categories
     sum_cat_month[ [ clm['category'] , clm['cat_fine'] ] ] = sum_cat_month.index.to_series().str.split('/', expand=True)
-    sum_cat_month[clm['cat_fine']].replace(np.nan, '', inplace=True)
+    sum_cat_month[clm['cat_fine']] = sum_cat_month[clm['cat_fine']].replace(np.nan, '')
     sum_cat_month = sum_cat_month.set_index([ clm['category'] , clm['cat_fine'] ])
     
 
@@ -81,7 +81,7 @@ def save_transactions_to_csv(transactions, clm, cfg):
     except:
         pass
     transactions = transactions.astype(str)
-    transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
+    transactions = transactions.replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
     try:
         transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "")
     except:
