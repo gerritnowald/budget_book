@@ -1,11 +1,24 @@
 # introduction
+
 Analyzing spendings with Python &amp; Pandas,  
 categorizing banking transactions with Machine Learning
 
 ![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/media/sunburst.webp)
 
-Finance report example:  
-https://github.com/gerritnowald/budget_book/blob/main/src/analysis.ipynb  
+Banking transactions are saved into a csv database and then analyzed for a given timeframe.
+
+Three executables / scripts are used to manage the banking transactions:
+- `transaction_importer` downloads new transactions using the *comdirect bank* API and appends them to the database.
+- `transaction_categorizer` categorizes the transactions based on their description text using Machine Learning.
+- `transaction_editor` is a console user interface to modify transactions, which is faster to use than Excel.
+Compiled versions for Windows can be found in `.\bin\win64\`.
+
+The transactions are analyzed in a Jupyter notebook, see this example:  
+https://github.com/gerritnowald/budget_book/blob/main/src/analysis.ipynb
+
+# disclaimer
+
+This is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
 
 # contents
 
@@ -25,16 +38,10 @@ https://github.com/gerritnowald/budget_book/blob/main/src/analysis.ipynb
   * [backup](#backup)
 - [dependencies](#dependencies)
 - [contributions](#contributions)
+- [history](#history)
 - [acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-# disclaimer
-
-I started this personal project as the German *comdirect bank* abolished their online budget planer *Finanzmanager*. It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank, which allows to export transactions as csv files. For the *comdirect bank*, the API access can be used, which I adopted from Philipp Panhey ([acknowledgements](#acknowledgements)).  
-I decided to publish this project, since I thought that it might be useful to others. However, this is not a professional and easy to use budget planer and requires some programming knowledge and adaptation to cater to your individual needs.
-
 
 # initial setup
 
@@ -169,6 +176,10 @@ If an online repo is used, it is **strongly** recommended to make it private and
 # contributions
 
 Contributions are welcome, especially regarding APIs for additional banks.
+
+# history
+
+I started this personal project as the German *comdirect bank* abolished their online budget planer *Finanzmanager*. It aims to reproduce this functionality while being as simple and understandable as possible. In principle this project is applicable to every bank, which allows to export transactions as csv files. I decided to publish this project, since I thought that it might be useful to others.
 
 # acknowledgements
 
