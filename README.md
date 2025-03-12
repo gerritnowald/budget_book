@@ -1,8 +1,5 @@
 # introduction
 
-Analyzing spendings with Python &amp; Pandas,  
-categorizing banking transactions with Machine Learning
-
 ![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/media/sunburst.webp)
 
 Banking transactions are saved into a csv database and then analyzed for a given timeframe.
@@ -10,7 +7,7 @@ Banking transactions are saved into a csv database and then analyzed for a given
 Three executables / scripts are used to manage the banking transactions:
 - `transaction_importer` downloads new transactions using the *comdirect bank* API and appends them to the database.
 - `transaction_categorizer` categorizes the transactions based on their description text using Machine Learning.
-- `transaction_editor` is a console user interface to modify transactions, which is faster to use than Excel.
+- `transaction_editor` is a console user interface to modify transactions, which is faster to use than Excel.  
 Compiled versions for Windows can be found in `.\bin\win64\`.
 
 The transactions are analyzed in a Jupyter notebook, see this example:  
@@ -22,7 +19,6 @@ This is not a professional and easy to use budget planer and requires some progr
 
 # contents
 
-- [disclaimer](#disclaimer)
 - [initial setup](#initial-setup)
   * [transactions database](#transactions-database)
   * [account balance](#account-balance)
@@ -64,8 +60,9 @@ https://github.com/gerritnowald/budget_book/blob/main/src/transactions.csv
 
 The account balance over time has to calculated **once** using
 ```
-python calculate_balance.py FINAL_BALANCE
+calculate_balance FINAL_BALANCE
 ```
+For Windows, the batch script `start_calculate_balance.bat` can be used (the final balance has to be set in the file).
 
 ## categorization
 
@@ -85,14 +82,14 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 
 ## managing banking transactions
 
-New transactions are merged to the database & categorized using three standalone scripts running in batch mode.  
-They can be used independently or in sequence, the latter by calling `Windows_start_transaction_importer.bat`.
+New transactions are merged to the database & categorized using three standalone executables / scripts running in batch mode.  
+They can be used independently or in sequence, the latter by calling `start_transaction_importer.bat`.
 
 ### import
 
 New transactions are appended to the database using
 ```
-python transaction_importer.py
+transaction_importer
 ```
 which is using the *comdirect bank* API.  
 Also the balance over time is updated.  
@@ -104,14 +101,14 @@ The final code can then be inserted into the function `def transactions_CSV()` i
 ### categorization
 
 ```
-python transaction_categorizer.py 
+transaction_categorizer
 ```
 categorizes the transactions based on their description text using Machine Learning, see also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/  
 A list of all currently used categories is automatically saved as `categories.csv`.  
 
 ```
-python transaction_categorizer.py -t
+transaction_categorizer -t
 ```
 determines the model prediction accuracy.  
 
@@ -120,14 +117,14 @@ determines the model prediction accuracy.
 Since the accuracy of the categoriziation is not perfect, wrong categories should be corrected.  
 For this, a console user interface is available, which can be run with
 ```
-python transaction_editor.py
+transaction_editor
 ```
 see also this blog post:  
 https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-with-python/
 
 It can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
 
-The console user interface is automatically run after `transaction_categorizer.py`.  
+The console user interface is automatically run after `transaction_categorizer`.  
 The pre-selected line highlights the last previously appended transaction.
 
 ## spendings report

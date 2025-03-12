@@ -136,4 +136,8 @@ functions.save_transactions_to_csv(transactions, clm, cfg)
 # open transaction editor
 
 print('start transaction editor')
-os.system(f"python transaction_editor.py -r {len(ind_uncategorized)}")
+
+if getattr(sys, 'frozen', False):
+    os.system(f"python transaction_editor.py -r {len(ind_uncategorized)}")
+elif getattr(sys, 'frozen', True):
+    os.system(f"transaction_editor.exe -r {len(ind_uncategorized)}")
