@@ -1,0 +1,397 @@
+date,amount,balance,category,description
+2023-12-30,-8.93,3000,living expenses/groceries,text
+2023-12-29,-5.77,3008.93,living expenses/groceries,text
+2023-12-29,-40.42,3014.7,mobility/gas,text
+2023-12-29,-11.3,3055.12,living expenses/groceries,text
+2023-12-28,-33.05,3066.42,living expenses/groceries,text
+2023-12-28,-14.35,3099.47,living expenses/groceries,text
+2023-12-28,-6.32,3113.82,living expenses/groceries,text
+2023-12-27,-6.2,3120.14,living expenses/groceries,text
+2023-12-27,-4.14,3126.34,living expenses/groceries,text
+2023-12-22,-35.77,3130.48,living expenses/groceries,text
+2023-12-20,-17.19,3166.25,living expenses/groceries,text
+2023-12-19,-32.03,3183.44,living expenses/groceries,text
+2023-12-19,-7.23,3215.47,living expenses/groceries,text
+2023-12-19,-4.5,3222.7,living expenses/groceries,text
+2023-12-19,-20.28,3227.2,living expenses/groceries,text
+2023-12-19,-105,3247.48,leisure/food,text
+2023-12-14,-45,3352.48,living expenses/presents,text
+2023-12-14,-3.99,3397.48,living expenses/phone,text
+2023-12-14,-5,3401.47,living expenses/presents,text
+2023-12-14,-31,3406.47,living expenses/presents,text
+2023-12-12,-40.42,3437.47,living expenses/groceries,text
+2023-12-12,-26.84,3477.89,living expenses/groceries,text
+2023-12-08,-24.5,3504.73,living expenses/presents,text
+2023-12-07,-1.2,3529.23,living expenses/groceries,text
+2023-12-06,-6.09,3530.43,living expenses/groceries,text
+2023-12-06,-43,3536.52,leisure/going out,text
+2023-12-06,-1000,3579.52,flat/rent,text
+2023-12-06,-27.1,4579.52,mobility/gas,text
+2023-12-06,-57,4606.62,living expenses/cash,text
+2023-12-05,-27.06,4663.62,living expenses/groceries,text
+2023-12-05,-21.57,4690.68,living expenses/groceries,text
+2023-12-05,-72,4712.25,mobility/maintenance,text
+2023-12-05,-12,4784.25,leisure/hobby,text
+2023-12-02,-19.9,4796.25,leisure/sport,text
+2023-12-02,-4.38,4816.15,living expenses/clothes,text
+2023-12-02,-85,4820.53,mobility/parking,text
+2023-12-01,2800,4905.53,income,text
+2023-12-01,-24.54,2105.53,living expenses/groceries,text
+2023-12-01,-92.56,2130.07,flat/ancillary costs,text
+2023-12-01,-200,2222.63,savings/stocks,IE00B57X3V84
+2023-11-28,-14.2,2422.63,living expenses/groceries,text
+2023-11-21,-80,2436.83,leisure/food,text
+2023-11-21,-8.3,2516.83,living expenses/groceries,text
+2023-11-21,-5.48,2525.13,leisure/food,text
+2023-11-21,-13.09,2530.61,living expenses/groceries,text
+2023-11-17,-3.6,2543.7,leisure/food,text
+2023-11-15,-51.9,2547.3,mobility/gas,text
+2023-11-15,-18.98,2599.2,living expenses/groceries,text
+2023-11-14,-4.53,2618.18,living expenses/phone,text
+2023-11-14,-25.51,2622.71,living expenses/groceries,text
+2023-11-14,-10.8,2648.22,living expenses/groceries,text
+2023-11-09,-11.1,2659.02,living expenses/groceries,text
+2023-11-08,-31.52,2670.12,leisure/hobby,text
+2023-11-07,-7,2701.64,leisure/food,text
+2023-11-07,-82.72,2708.64,mobility/gas,text
+2023-11-04,-19.9,2791.36,leisure/sport,text
+2023-11-04,-60,2811.26,living expenses/presents,text
+2023-11-03,-8.85,2871.26,living expenses/groceries,text
+2023-11-02,-125,2880.11,leisure/food,text
+2023-11-01,-85,3005.11,mobility/parking,text
+2023-11-01,-6.15,3090.11,leisure/food,text
+2023-11-01,2800,3096.26,income,text
+2023-11-01,-1000,296.26,flat/rent,text
+2023-11-01,-200,1296.26,savings/stocks,IE00B57X3V84
+2023-11-01,-92.56,1496.26,flat/ancillary costs,text
+2023-10-31,-8.74,1588.82,living expenses/groceries,text
+2023-10-31,-7.5,1597.56,mobility/public transport,text
+2023-10-31,-20.66,1605.06,living expenses/presents,text
+2023-10-28,-29.61,1625.72,living expenses/groceries,text
+2023-10-27,-6.99,1655.33,leisure/sport,text
+2023-10-24,-63.6,1662.32,vacation/transport,text
+2023-10-24,-54.19,1725.92,mobility/gas,text
+2023-10-21,-29.75,1780.11,living expenses/groceries,text
+2023-10-20,-11.2,1809.86,vacation/various,text
+2023-10-19,-18.34,1821.06,living expenses/groceries,text
+2023-10-17,-32,1839.4,vacation/various,text
+2023-10-17,-60,1871.4,vacation/lodging,text
+2023-10-17,-55,1931.4,leisure/food,text
+2023-10-17,-49.94,1986.4,living expenses/groceries,text
+2023-10-17,-3.54,2036.34,living expenses/groceries,text
+2023-10-17,-243.95,2039.88,living expenses/cash,text
+2023-10-17,-200,2283.83,leisure/food,text
+2023-10-17,-5.5,2483.83,living expenses/groceries,text
+2023-10-17,-27.64,2489.33,living expenses/groceries,text
+2023-10-17,-8,2516.97,leisure/food,text
+2023-10-17,-6.57,2524.97,living expenses/phone,text
+2023-10-12,-30.19,2531.54,living expenses/groceries,text
+2023-10-12,-22,2561.73,leisure/going out,text
+2023-10-11,-5.7,2583.73,living expenses/groceries,text
+2023-10-10,-34.42,2589.43,living expenses/groceries,text
+2023-10-10,-63.05,2623.85,mobility/gas,text
+2023-10-07,-50,2686.9,living expenses/cash,text
+2023-10-04,-92.56,2736.9,flat/ancillary costs,text
+2023-10-04,-85,2829.46,mobility/parking,text
+2023-10-03,-22.58,2914.46,living expenses/groceries,text
+2023-10-03,-11.9,2937.04,vacation/various,text
+2023-10-03,-1000,2948.94,flat/rent,text
+2023-10-02,-200,3948.94,savings/stocks,IE00B57X3V84
+2023-10-01,2800,4148.94,income,text
+2023-09-30,-1.89,1348.94,living expenses/groceries,text
+2023-09-28,-48,1350.83,leisure/sport,text
+2023-09-26,-59.7,1398.83,living expenses/groceries,text
+2023-09-26,-23.96,1458.53,living expenses/groceries,text
+2023-09-26,-6.5,1482.49,leisure/food,text
+2023-09-26,-24.99,1488.99,living expenses/groceries,text
+2023-09-22,-39.16,1513.98,mobility/gas,text
+2023-09-20,-6,1553.14,leisure/sport,text
+2023-09-19,-12.64,1559.14,living expenses/groceries,text
+2023-09-19,-9.8,1571.78,mobility/parking,text
+2023-09-16,-3.76,1581.58,living expenses/groceries,text
+2023-09-14,-4.17,1585.34,living expenses/phone,text
+2023-09-08,-100,1589.51,living expenses/cash,text
+2023-09-07,-3.5,1689.51,leisure/food,text
+2023-09-07,-1000,1693.01,flat/rent,text
+2023-09-07,-12.9,2693.01,leisure/sport,text
+2023-09-07,-10,2705.91,leisure/food,text
+2023-09-07,-0.99,2715.91,living expenses/groceries,text
+2023-09-06,-10,2716.9,leisure/sport,text
+2023-09-06,-35,2726.9,leisure/food,text
+2023-09-05,-412.5,2761.9,vacation/lodging,text
+2023-09-05,-18.62,3174.4,living expenses/groceries,text
+2023-09-01,-200,3193.02,savings/stocks,IE00B57X3V84
+2023-09-01,2800,3393.02,income,text
+2023-09-01,-85,593.02,mobility/parking,text
+2023-09-01,-92.56,678.02,flat/ancillary costs,text
+2023-09-01,-6.7,770.58,living expenses/groceries,text
+2023-08-31,-43.64,777.28,living expenses/groceries,text
+2023-08-31,-26.36,820.92,flat/furniture,text
+2023-08-31,-45.27,847.28,mobility/gas,text
+2023-08-31,-307.4,892.55,living expenses/presents,text
+2023-08-29,-42.14,1199.95,living expenses/groceries,text
+2023-08-29,-5.8,1242.09,living expenses/groceries,text
+2023-08-29,-5.93,1247.89,living expenses/groceries,text
+2023-08-25,-2.49,1253.82,leisure/hobby,text
+2023-08-25,-40,1256.31,leisure/food,text
+2023-08-25,-79.98,1296.31,living expenses/clothes,text
+2023-08-24,-19,1376.29,leisure/food,text
+2023-08-24,-89.05,1395.29,living expenses/cash,text
+2023-08-24,-41.95,1484.34,living expenses/clothes,text
+2023-08-24,-44,1526.29,leisure/food,text
+2023-08-23,-3.5,1570.29,mobility/parking,text
+2023-08-23,-49.19,1573.79,mobility/gas,text
+2023-08-23,-79,1622.98,leisure/food,text
+2023-08-23,-1244.6,1701.98,vacation/lodging,text
+2023-08-23,-24.29,2946.58,living expenses/groceries,text
+2023-08-22,-59.1,2970.87,leisure/food,text
+2023-08-22,-32.54,3029.97,living expenses/groceries,text
+2023-08-22,-29,3062.51,leisure/food,text
+2023-08-22,-51.2,3091.51,leisure/food,text
+2023-08-18,-33.07,3142.71,living expenses/groceries,text
+2023-08-15,-1.6,3175.78,leisure/hobby,text
+2023-08-15,-57.33,3177.38,mobility/gas,text
+2023-08-15,-40.5,3234.71,leisure/food,text
+2023-08-12,-43.88,3275.21,mobility/gas,text
+2023-08-11,-3.99,3319.09,living expenses/phone,text
+2023-08-11,-4.4,3323.08,leisure/food,text
+2023-08-09,-8.8,3327.48,mobility/parking,text
+2023-08-09,-4.5,3336.28,living expenses/groceries,text
+2023-08-09,-11.7,3340.78,living expenses/groceries,text
+2023-08-08,-53.97,3352.48,living expenses/groceries,text
+2023-08-05,-53.21,3406.45,living expenses/groceries,text
+2023-08-04,-7,3459.66,leisure/food,text
+2023-08-02,-64.97,3466.66,living expenses/groceries,text
+2023-08-01,-85,3531.63,mobility/parking,text
+2023-08-01,2800,3616.63,income,text
+2023-08-01,-99.95,816.63,flat/ancillary costs,text
+2023-08-01,-15.4,916.58,living expenses/groceries,text
+2023-08-01,-57.77,931.98,mobility/gas,text
+2023-08-01,-1000,989.75,flat/rent,text
+2023-08-01,-35,1989.75,leisure/food,text
+2023-08-01,-17.2,2024.75,living expenses/groceries,text
+2023-08-01,-200,2041.95,savings/stocks,IE00B57X3V84
+2023-07-28,-5.99,2241.95,leisure/hobby,text
+2023-07-26,-24.35,2247.94,mobility/gas,text
+2023-07-26,-41.91,2272.29,living expenses/groceries,text
+2023-07-26,-60,2314.2,living expenses/cash,text
+2023-07-26,-17.89,2374.2,flat/furniture,text
+2023-07-25,-35.1,2392.09,living expenses/groceries,text
+2023-07-25,-50,2427.19,living expenses/cash,text
+2023-07-25,-74.08,2477.19,vacation/various,text
+2023-07-22,-37.33,2551.27,living expenses/groceries,text
+2023-07-22,-144,2588.6,vacation/lodging,text
+2023-07-21,-7.8,2732.6,leisure/food,text
+2023-07-20,-4.5,2740.4,leisure/food,text
+2023-07-19,-44,2744.9,living expenses/groceries,text
+2023-07-18,-5.12,2788.9,vacation/various,text
+2023-07-18,-7.2,2794.02,leisure/food,text
+2023-07-18,-36,2801.22,vacation/lodging,text
+2023-07-18,-26.99,2837.22,vacation/various,text
+2023-07-14,-99.95,2864.21,flat/ancillary costs,text
+2023-07-14,-4.67,2964.16,living expenses/phone,text
+2023-07-14,-6,2968.83,leisure/food,text
+2023-07-13,-88.99,2974.83,leisure/hobby,text
+2023-07-07,-5.6,3063.82,leisure/food,text
+2023-07-06,-85,3069.42,mobility/parking,text
+2023-07-05,-50,3154.42,living expenses/cash,text
+2023-07-05,-37.99,3204.42,living expenses/groceries,text
+2023-07-05,-36.9,3242.41,mobility/gas,text
+2023-07-04,-40.09,3279.31,living expenses/groceries,text
+2023-07-04,-1000,3319.4,flat/rent,text
+2023-07-03,-200,4319.4,savings/stocks,IE00B57X3V84
+2023-07-01,-5,4519.4,leisure/food,text
+2023-07-01,2800,4524.4,income,text
+2023-06-30,-5.6,1724.4,leisure/food,text
+2023-06-27,-12.84,1730,living expenses/groceries,text
+2023-06-27,-145,1742.84,leisure/food,text
+2023-06-27,-33.95,1887.84,living expenses/groceries,text
+2023-06-27,-18,1921.79,leisure/hobby,text
+2023-06-24,-12,1939.79,leisure/hobby,text
+2023-06-23,-4.4,1951.79,leisure/food,text
+2023-06-23,-1.9,1956.19,leisure/food,text
+2023-06-22,-49.55,1958.09,mobility/gas,text
+2023-06-20,-7,2007.64,mobility/parking,text
+2023-06-20,-63.72,2014.64,living expenses/groceries,text
+2023-06-20,-7,2078.36,mobility/parking,text
+2023-06-20,-36.35,2085.36,mobility/gas,text
+2023-06-20,-38,2121.71,leisure/food,text
+2023-06-20,-32,2159.71,leisure/food,text
+2023-06-16,-5.63,2191.71,living expenses/groceries,text
+2023-06-16,-10.57,2197.34,leisure/food,text
+2023-06-16,-52.15,2207.91,leisure/food,text
+2023-06-15,-3.99,2260.06,living expenses/phone,text
+2023-06-15,-32.23,2264.05,leisure/hobby,text
+2023-06-15,-6.99,2296.28,living expenses/groceries,text
+2023-06-15,-17.56,2303.27,leisure/food,text
+2023-06-14,-44.35,2320.83,living expenses/groceries,text
+2023-06-14,-5.22,2365.18,living expenses/groceries,text
+2023-06-13,-5.63,2370.4,living expenses/groceries,text
+2023-06-13,-7.55,2376.03,living expenses/groceries,text
+2023-06-13,-6.86,2383.58,leisure/food,text
+2023-06-13,-37.06,2390.44,leisure/food,text
+2023-06-13,-47.23,2427.5,living expenses/groceries,text
+2023-06-10,-203.84,2474.73,vacation/transport,text
+2023-06-10,-10.44,2678.57,leisure/food,text
+2023-06-10,-90.47,2689.01,mobility/gas,text
+2023-06-09,-73.3,2779.48,living expenses/groceries,text
+2023-06-06,-41.22,2852.78,living expenses/groceries,text
+2023-06-03,-37.72,2894,leisure/food,text
+2023-06-01,-5.49,2931.72,leisure/food,text
+2023-06-01,-200,2937.21,savings/stocks,IE00B57X3V84
+2023-06-01,-85,3137.21,mobility/parking,text
+2023-06-01,-10.3,3222.21,mobility/parking,text
+2023-06-01,-12.4,3232.51,leisure/food,text
+2023-06-01,2800,3244.91,income,text
+2023-06-01,-1000,444.91,flat/rent,text
+2023-06-01,-75.99,1444.91,flat/ancillary costs,text
+2023-05-31,-15.9,1520.9,living expenses/groceries,text
+2023-05-31,-21.97,1536.8,leisure/food,text
+2023-05-31,-59.02,1558.77,leisure/food,text
+2023-05-30,-26,1617.79,vacation/various,text
+2023-05-30,-44,1643.79,leisure/food,text
+2023-05-30,-30.88,1687.79,living expenses/groceries,text
+2023-05-27,-29,1718.67,leisure/food,text
+2023-05-25,-25.38,1747.67,living expenses/groceries,text
+2023-05-24,-33.97,1773.05,mobility/gas,text
+2023-05-23,-268.6,1807.02,vacation/lodging,text
+2023-05-23,36.64,2075.62,leisure/hobby,text
+2023-05-23,-149,2038.98,leisure/going out,text
+2023-05-23,-96,2187.98,living expenses/cash,text
+2023-05-18,-20,2283.98,living expenses/cash,text
+2023-05-18,-54.57,2303.98,living expenses/groceries,text
+2023-05-18,-30,2358.55,leisure/food,text
+2023-05-16,-77.03,2388.55,mobility/gas,text
+2023-05-16,-35.32,2465.58,living expenses/groceries,text
+2023-05-13,-36.64,2500.9,leisure/hobby,text
+2023-05-12,-6.8,2537.54,leisure/food,text
+2023-05-12,-4.08,2544.34,living expenses/phone,text
+2023-05-10,-49.6,2548.42,living expenses/groceries,text
+2023-05-10,-5.8,2598.02,leisure/food,text
+2023-05-09,-47.83,2603.82,living expenses/groceries,text
+2023-05-05,-30.91,2651.65,living expenses/groceries,text
+2023-05-02,-85,2682.56,mobility/parking,text
+2023-05-02,-1000,2767.56,flat/rent,text
+2023-05-02,-17.79,3767.56,living expenses/groceries,text
+2023-05-02,-70,3785.35,leisure/food,text
+2023-05-02,-70,3855.35,living expenses/cash,text
+2023-05-02,-75.99,3925.35,flat/ancillary costs,text
+2023-05-02,-27.72,4001.34,living expenses/groceries,text
+2023-05-01,2800,4029.06,income,text
+2023-05-01,-200,1229.06,savings/stocks,IE00B57X3V84
+2023-04-29,-5,1429.06,leisure/food,text
+2023-04-28,-150,1434.06,living expenses/cash,text
+2023-04-28,-8.83,1584.06,living expenses/groceries,text
+2023-04-28,-50,1592.89,living expenses/groceries,text
+2023-04-25,-39.98,1642.89,living expenses/groceries,text
+2023-04-20,-39.23,1682.87,living expenses/groceries,text
+2023-04-20,-48.85,1722.1,mobility/gas,text
+2023-04-14,-1250,1770.95,mobility/bicycle,text
+2023-04-14,-3.99,3020.95,living expenses/phone,text
+2023-04-13,-25.48,3024.94,mobility/bicycle,text
+2023-04-12,-85,3050.42,mobility/parking,text
+2023-04-12,-18.75,3135.42,leisure/hobby,text
+2023-04-11,-33.05,3154.17,living expenses/groceries,text
+2023-04-08,-10,3187.22,leisure/food,text
+2023-04-08,-65,3197.22,leisure/food,text
+2023-04-08,-35,3262.22,living expenses/cash,text
+2023-04-06,-4.2,3297.22,living expenses/groceries,text
+2023-04-06,-35,3301.42,leisure/food,text
+2023-04-05,-18.47,3336.42,living expenses/groceries,text
+2023-04-05,-119,3354.89,flat/furniture,text
+2023-04-04,-14.99,3473.89,leisure/hobby,text
+2023-04-04,-36.17,3488.88,living expenses/groceries,text
+2023-04-03,-200,3525.05,savings/stocks,IE00B57X3V84
+2023-04-01,-13.83,3725.05,living expenses/groceries,text
+2023-04-01,-75.99,3738.88,flat/ancillary costs,text
+2023-04-01,2800,3814.87,income,text
+2023-04-01,-1000,1014.87,flat/rent,text
+2023-03-30,-29.94,2014.87,flat/furniture,text
+2023-03-29,-47.84,2044.81,living expenses/groceries,text
+2023-03-28,-2.17,2092.65,leisure/hobby,text
+2023-03-28,-8.05,2094.82,living expenses/groceries,text
+2023-03-28,-24.7,2102.87,leisure/food,text
+2023-03-28,-14,2127.57,mobility/public transport,text
+2023-03-23,-79.8,2141.57,living expenses/insurance,text
+2023-03-23,-323.23,2221.37,living expenses/insurance,text
+2023-03-23,-4.32,2544.6,leisure/hobby,text
+2023-03-22,-24.63,2548.92,leisure/hobby,text
+2023-03-22,-43.2,2573.55,leisure/going out,text
+2023-03-21,-78.93,2616.75,leisure/going out,text
+2023-03-18,-53.84,2695.68,living expenses/groceries,text
+2023-03-17,-311.7,2749.52,mobility/maintenance,text
+2023-03-17,-69.4,3061.22,leisure/going out,text
+2023-03-16,-81.11,3130.62,mobility/gas,text
+2023-03-16,-33.27,3211.73,living expenses/groceries,text
+2023-03-15,-1.95,3245,mobility/parking,text
+2023-03-14,-3.99,3246.95,living expenses/phone,text
+2023-03-14,-1.09,3250.94,mobility/parking,text
+2023-03-13,-1000,3252.03,savings/stocks,GOOG
+2023-03-11,-40,4252.03,leisure/food,text
+2023-03-11,-8,4292.03,leisure/going out,text
+2023-03-11,-36.32,4300.03,living expenses/groceries,text
+2023-03-11,-6.64,4336.35,mobility/parking,text
+2023-03-10,-36.9,4342.99,leisure/hobby,text
+2023-03-10,-12.8,4379.89,living expenses/groceries,text
+2023-03-10,-92.85,4392.69,mobility/gas,text
+2023-03-10,-118,4485.54,living expenses/clothes,text
+2023-03-09,-11.5,4603.54,mobility/parking,text
+2023-03-09,-10.15,4615.04,leisure/food,text
+2023-03-09,-3.83,4625.19,leisure/hobby,text
+2023-03-09,-9.4,4629.02,mobility/public transport,text
+2023-03-08,-9.5,4638.42,living expenses/groceries,text
+2023-03-08,-19.21,4647.92,living expenses/groceries,text
+2023-03-08,-22.9,4667.13,leisure/food,text
+2023-03-07,-6.26,4690.03,living expenses/groceries,text
+2023-03-04,-52.21,4696.29,living expenses/groceries,text
+2023-03-03,-1000,4748.5,flat/rent,text
+2023-03-03,-55,5748.5,leisure/sport,text
+2023-03-01,-83.11,5803.5,flat/ancillary costs,text
+2023-03-01,-200,5886.61,savings/stocks,IE00B57X3V84
+2023-03-01,-68,6086.61,flat/furniture,text
+2023-03-01,-34.8,6154.61,living expenses/groceries,text
+2023-03-01,-0.85,6189.41,flat/furniture,text
+2023-03-01,-85,6190.26,mobility/parking,text
+2023-03-01,2800,6275.26,income,text
+2023-02-28,-30.95,3475.26,living expenses/groceries,text
+2023-02-25,-70,3506.21,mobility/gas,text
+2023-02-23,-89,3576.21,living expenses/presents,text
+2023-02-22,-45.57,3665.21,living expenses/groceries,text
+2023-02-21,-37.81,3710.78,living expenses/groceries,text
+2023-02-17,-17.78,3748.59,living expenses/groceries,text
+2023-02-14,-3.99,3766.37,living expenses/phone,text
+2023-02-07,-27.5,3770.36,living expenses/groceries,text
+2023-02-04,-8.97,3797.86,living expenses/groceries,text
+2023-02-02,-31.67,3806.83,living expenses/groceries,text
+2023-02-01,-1000,3838.5,flat/rent,text
+2023-02-01,-200,4838.5,savings/stocks,IE00B57X3V84
+2023-02-01,-85,5038.5,mobility/parking,text
+2023-02-01,-75.99,5123.5,flat/ancillary costs,text
+2023-02-01,-31.97,5199.49,mobility/gas,text
+2023-02-01,2800,5231.46,income,text
+2023-01-31,-35.46,2431.46,living expenses/groceries,text
+2023-01-31,13.03,2466.92,mobility/maintenance,text
+2023-01-28,-100,2453.89,living expenses/cash,text
+2023-01-28,-2.99,2553.89,living expenses/groceries,text
+2023-01-26,-42.99,2556.88,flat/furniture,text
+2023-01-25,-13.4,2599.87,living expenses/groceries,text
+2023-01-25,-112.9,2613.27,leisure/clubs,text
+2023-01-24,-18.54,2726.17,living expenses/groceries,text
+2023-01-21,-35.86,2744.71,living expenses/groceries,text
+2023-01-18,-57.72,2780.57,mobility/gas,text
+2023-01-17,-31.91,2838.29,living expenses/groceries,text
+2023-01-17,-29.28,2870.2,living expenses/groceries,text
+2023-01-14,-4.8,2899.48,living expenses/groceries,text
+2023-01-13,-4.62,2904.28,living expenses/phone,text
+2023-01-11,-19.99,2908.9,leisure/hobby,text
+2023-01-11,-46.17,2928.89,living expenses/groceries,text
+2023-01-06,-18.43,2975.06,living expenses/groceries,text
+2023-01-06,-1000,2993.49,flat/rent,text
+2023-01-06,-100,3993.49,living expenses/cash,text
+2023-01-05,-85,4093.49,mobility/parking,text
+2023-01-03,-80.43,4178.49,flat/ancillary costs,text
+2023-01-03,-435.95,4258.92,mobility/maintenance,text
+2023-01-03,-224.62,4694.87,flat/ancillary costs,text
+2023-01-03,-77.23,4919.49,living expenses/insurance,text
+2023-01-03,-200,4996.72,savings/stocks,IE00B57X3V84
+2023-01-01,2800,5196.72,income,text
