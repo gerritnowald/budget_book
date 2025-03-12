@@ -64,7 +64,7 @@ frame_gasoline.pack(side=tk.LEFT)
 label_gasoline = tk.Label(frame_gasoline, text="Combustion Car")
 label_gasoline.pack()
 
-slider_gasoline_consumption = tk.Scale(frame_gasoline, from_=3, to=15, orient=tk.HORIZONTAL, label="consumption / l/100km", command=update_plot, length=200)
+slider_gasoline_consumption = tk.Scale(frame_gasoline, from_=3, to=15, resolution=0.5, orient=tk.HORIZONTAL, label="consumption / l/100km", command=update_plot, length=200)
 slider_gasoline_consumption.set(consumption_gasoline)
 slider_gasoline_consumption.pack()
 
