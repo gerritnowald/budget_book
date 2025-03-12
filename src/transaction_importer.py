@@ -291,7 +291,10 @@ def main():
     transactions_new = transactions_new[transactions_new[clm['date']] >= (max_date - timedelta(days=5))]
 
     # removing overlap
-    transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount']], how='right', indicator=True )
+    try:
+        transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount'], clm['type']], how='right', indicator=True )
+    except:
+        transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount']], how='right', indicator=True )
     transactions_new = transactions_new.query('_merge == "right_only"').drop(['_merge'], axis=1)
 
     if len(transactions_new) == 0:

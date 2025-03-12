@@ -46,8 +46,10 @@ transactions[clm['date']] = pd.to_datetime( transactions[clm['date']] , format =
 print('finished loading transaction database')
 
 # filtering out training data without detailed description text (Finanzmanager export)
-# transactions_train = transactions[ ~transactions[clm['type']].isna() ]
-transactions_train = transactions.copy()
+try:
+    transactions_train = transactions[ ~transactions[clm['type']].isna() ]
+except:
+    transactions_train = transactions.copy()
 
 # find transactions without categories
 # transactions_train[clm['category']] = transactions_train[clm['category']].replace(to_replace = "", value = "nan")
@@ -137,7 +139,7 @@ functions.save_transactions_to_csv(transactions, clm, cfg)
 
 print('start transaction editor')
 
-if getattr(sys, 'frozen', False):
-    os.system(f"python transaction_editor.py -r {len(ind_uncategorized)}")
-elif getattr(sys, 'frozen', True):
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     os.system(f"transaction_editor.exe -r {len(ind_uncategorized)}")
+elif getattr(sys, 'frozen', True):
+    os.system(f"python transaction_editor.py -r {len(ind_uncategorized)}")
