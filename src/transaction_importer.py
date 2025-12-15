@@ -211,10 +211,14 @@ def get_transactions(access_credentials, pastDays = 30):
     start_date = end_date - datetime.timedelta(days=pastDays)
 
     res = []
+    i = 0
     for day in ( start_date + datetime.timedelta(n) for n in range((end_date - start_date).days + 1) ):
         res.append( get_authorized( access_credentials,
             f"https://api.comdirect.de/api/banking/v1/accounts/{account_id}/transactions?min-bookingDate={day}&max-bookingDate={day}&transactionState=BOOKED",
             ).json()["values"] )   # loop necessary, since setting different min & max booking dates does not reliably fetch all transactions in this period
+        print(f'fetching transactions: {i+1}/{(end_date - start_date).days + 1} days processed', end='\r')
+        i += 1
+        time.sleep(1)
     
     return [item for sublist in res for item in sublist]
 
@@ -244,6 +248,7 @@ def convert2dataframe(transactions, clm):
 
 def transactions_API_comdirect(clm, pastDays = 30):
     access_credentials = authenticate_api()
+    print('login successful')
     transactions = get_transactions(access_credentials, pastDays)
     df = convert2dataframe(transactions, clm)
     return df
