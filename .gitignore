@@ -2,4 +2,4 @@ __pycache__/
 *.joblib
 build/
 *.spec
-.exe
+*.exe
