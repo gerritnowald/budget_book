@@ -74,7 +74,8 @@ Two layers of categories can be used, separated with / (e.g. *living expenses/gr
 This has to be done manually in the beginning, e.g. using Excel.  
 Later, Machine Learning is used to automatically categorize new transactions.
 
-Use `categorizer_training.ipynb` to train a machine learning model on your transactions with your categories.  
+Use `categorizer_training.ipynb` to train a machine learning model on your transactions with your categories, see also this blog post:  
+https://gerritnowald.wordpress.com/2025/12/16/revisiting-categorization-of-banking-transactions/  
 A list of all currently used categories is automatically saved as `categories.csv`.  
 My current model `categorizer.joblib` is also provided, but it will use my categories.
 
