@@ -4,11 +4,10 @@
 
 Banking transactions are saved into a csv database and then analyzed for a given timeframe.
 
-Three executables / scripts are used to manage the banking transactions:
+Three scripts are used to manage the banking transactions:
 - `transaction_importer` downloads new transactions using the *comdirect bank* API and appends them to the database.
 - `transaction_categorizer` categorizes the transactions based on their description text using Machine Learning.
 - `transaction_editor` is a console user interface to modify transactions, which is faster to use than Excel.  
-Compiled versions for Windows can be found in `.\bin\win64\`.
 
 The transactions are analyzed in a Jupyter notebook, see this example:  
 https://github.com/gerritnowald/budget_book/blob/main/src/analysis.ipynb
@@ -43,6 +42,10 @@ This is not a professional and easy to use budget planer and requires some progr
 
 General settings such as file names & column names have to be set in `config.ini`.
 
+To compile the scripts for Windows, use the batch files in the folder `.\src\make\`.  
+They are then placed in `.\bin\win64\`.  
+This is optional, all scripts in the folder `.\src\` can be used as is.
+
 ## transactions database
 
 Initially, transactions (e.g. from the last year) are exported from online banking as a csv file.  
@@ -71,6 +74,10 @@ Two layers of categories can be used, separated with / (e.g. *living expenses/gr
 This has to be done manually in the beginning, e.g. using Excel.  
 Later, Machine Learning is used to automatically categorize new transactions.
 
+Use `categorizer_training.ipynb` to train a machine learning model on your transactions with your categories.  
+A list of all currently used categories is automatically saved as `categories.csv`.  
+My current model `categorizer.joblib` is also provided, but it will use my categories.
+
 ## comdirect API
 
 For the API import for the German *comdirect bank*, the user has to [register](https://www.comdirect.de/cms/kontakt-zugaenge-api.html) and insert the credentials into `config_comdirectAPI.json`.
@@ -82,7 +89,7 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 
 ## managing banking transactions
 
-New transactions are merged to the database & categorized using three standalone executables / scripts running in batch mode.  
+New transactions are merged to the database & categorized using three standalone scripts running in batch mode.  
 They can be used independently or in sequence, the latter by calling `start_transaction_importer.bat`.
 
 ### import
@@ -105,12 +112,6 @@ transaction_categorizer
 ```
 categorizes the transactions based on their description text using Machine Learning, see also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/  
-A list of all currently used categories is automatically saved as `categories.csv`.  
-
-```
-transaction_categorizer -t
-```
-determines the model prediction accuracy.  
 
 ### console user interface
 
@@ -169,6 +170,8 @@ If an online repo is used, it is **strongly** recommended to make it private and
 - sklearn (for categorization)
 - curses (for console user interface)
 - yfinance (to retrieve stock data)
+
+On Windows, use `start_transaction_importer.bat` to install the required packages.
 
 # contributions
 

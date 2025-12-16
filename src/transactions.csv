@@ -1,4 +1,4 @@
-date,amount,balance,category,description
+date,amount,balance,category,description,confidence
 2023-12-30,-8.93,3000,living expenses/groceries,text
 2023-12-29,-5.77,3008.93,living expenses/groceries,text
 2023-12-29,-40.42,3014.7,mobility/gas,text

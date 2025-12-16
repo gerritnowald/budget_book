@@ -18,4 +18,6 @@ call python.exe -m pip install scikit-learn
 @REM transaction_editor.py
 call python.exe -m pip install windows-curses
 
+call python.exe -m pip install rapidfuzz
+
 pause

@@ -37,10 +37,10 @@ def main(stdscr):
     # database
     df = pd.read_csv(cfg['CSV filenames']['database']  + '.csv', encoding = "ISO-8859-1")
 
-    # classifier
+    # classifier pipeline
     Nsuggest = 3    # number of category suggestions
     try:
-        vectorizer, classifier = load(cfg['categorizer file'] + '.joblib')
+        classifier = load(cfg['categorizer file'] + '.joblib')
         suggestions = True
     except:
         with open(cfg['CSV filenames']['categories']  + '.csv', 'r') as file:
@@ -60,7 +60,7 @@ def main(stdscr):
     y_entries    = y_max - y_header - 2
     x_category   = 20
     x_float      = 9
-    x_text       = x_max - x_category - 2*x_float - 18
+    x_text       = x_max - x_category - 2*x_float - 19
 
     # -----------------------------------------------------------------------------------
     # Print header
@@ -73,9 +73,10 @@ def main(stdscr):
     stdscr.addstr(5, 0, ' r to remove transaction')
     stdscr.addstr(6, 0, ' q to quit & save')
     stdscr.addstr(7, 0, ''.ljust(x_max,'—'))
-    stdscr.addstr(7, x_text + 14, ' category ')
-    stdscr.addstr(7, x_text + x_category + 18, ' amount ')
-    stdscr.addstr(7, x_text + x_category + x_float + 18, ' balance ')
+    stdscr.addstr(7, x_text + 13, ' category ')
+    stdscr.addstr(7, x_text + x_category + 13, ' conf ')
+    stdscr.addstr(7, x_text + x_category + 20, ' amount ')
+    stdscr.addstr(7, x_text + x_category + x_float + 19, ' balance ')
     stdscr.addstr(y_max - 2, 0, ''.ljust(x_max,'—'))
 
     # -----------------------------------------------------------------------------------
@@ -106,9 +107,14 @@ def main(stdscr):
                 category = row[clm['category']].ljust(x_category)[:x_category]
             except:
                 category = ''.ljust(x_category)[:x_category]    # nan
-            
-            stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text}  {category} {- row[clm['amount']]:9.2f} {row[clm['balance']]:9.2f}", attr)
-            
+
+            try:
+                confidence = int(row['confidence'])
+            except ValueError:
+                confidence = 'n/a'
+
+            stdscr.addstr(i+y_header, 1, f"{row[clm['date']]}  {text} {category} {confidence:>3} {row[clm['amount']]:8.2f} {row[clm['balance']]:8.2f}", attr)
+
         stdscr.refresh()
 
         # Wait for user input
@@ -183,15 +189,8 @@ def main(stdscr):
         elif key == 10:  # ASCII value of Enter key
             offset = 0
             if suggestions:
-                # text pre-processing
-                keywords_new = functions.PreProcText(df.loc[current_row:current_row, clm['text']] , minwordlength=4)
-
-                # feature extraction        
-                X_new = vectorizer.transform(keywords_new).toarray()
-                X_new = np.column_stack(( X_new , df.loc[current_row:current_row, clm['amount']].to_list() ))
-
                 # classification
-                prob = classifier.predict_proba(X_new)
+                prob = classifier.predict_proba(df.loc[current_row:current_row])
                 categories  = list(classifier.classes_[np.argsort(-prob[0])[:Nsuggest]])
                 categories += [category for category in classifier.classes_ if category not in categories]
             
@@ -200,7 +199,7 @@ def main(stdscr):
             while True:
                 # print current category
                 category_str = categories[ind].ljust(x_category)[:x_category]
-                stdscr.addstr(current_row - top_row + y_header, x_text + 15, category_str)
+                stdscr.addstr(current_row - top_row + y_header, x_text + 14, category_str)
                 
                 # Wait for user input
                 key = stdscr.getch()
@@ -215,6 +214,7 @@ def main(stdscr):
                 elif key == 10:  # ASCII value of Enter key
                     change = True
                     df.loc[current_row, clm['category']] = categories[ind]
+                    df.loc[current_row, 'confidence']    = np.nan
                     break
 
                 # return without saving
