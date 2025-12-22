@@ -157,15 +157,15 @@ def main(stdscr):
             curses.noecho()
 
             # insert new row
-            if new_amount < abs(df[clm['amount']].iloc[current_row]):
+            if abs(new_amount) < abs(df[clm['amount']].iloc[current_row]):
                 change = True
                 df = pd.concat([
                     df.iloc[:current_row], 
                     df.iloc[[current_row]], 
                     df.iloc[current_row:]]).reset_index(drop=True)
-                df.loc[current_row    , clm['amount'] ]  = - new_amount
-                df.loc[current_row + 1, clm['amount'] ] +=   new_amount
-                df.loc[current_row + 1, clm['balance']] +=   new_amount
+                df.loc[current_row    , clm['amount'] ]  = + new_amount
+                df.loc[current_row + 1, clm['amount'] ] -=   new_amount
+                df.loc[current_row + 1, clm['balance']] -=   new_amount
 
         # -----------------------------------------------------------------------------------
         # remove transaction
