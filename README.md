@@ -24,7 +24,7 @@ This is not a professional and easy to use budget planer and requires some progr
   * [comdirect API](#comdirect-api)
 - [how to use](#how-to-use)
   * [managing banking transactions](#managing-banking-transactions)
-    + [import & categorization](#import-&-categorization)
+    + [import & categorization](#import---categorization)
     + [console user interface](#console-user-interface)
   * [creating a spendings report](#creating-a-spendings-report)
   * [analyzing stock portfolio performance](#analyzing-stock-portfolio-performance)
