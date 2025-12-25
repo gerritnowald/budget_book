@@ -1,5 +1,6 @@
 """
 Import new transactions into the database, either from csv or via API (comdirect bank).
+Use Machine Learning model to categorize new transactions.
 The account balance is also updated."""
 
 import pandas as pd
@@ -218,7 +219,7 @@ def get_transactions(access_credentials, pastDays = 30):
             ).json()["values"] )   # loop necessary, since setting different min & max booking dates does not reliably fetch all transactions in this period
         print(f'fetching transactions: {i+1}/{(end_date - start_date).days + 1} days processed', end='\r')
         i += 1
-        time.sleep(1)
+        time.sleep(.5)   # to avoid too many requests in short time
     
     return [item for sublist in res for item in sublist]
 
@@ -257,17 +258,15 @@ def transactions_API_comdirect(clm, pastDays = 30):
 # -----------------------------------------------------------------------------------
 # transaction importer
 
-import argparse
-from datetime import timedelta
+from joblib import load
+import sys
+import os
+
+import numpy as np
+
 from functions import save_transactions_to_csv
 
 def main():
-
-    # -----------------------------------------------------------------------------------
-    # argparse
-    
-    parser = argparse.ArgumentParser(description="append new transactions to database")
-    _ = parser.parse_args()     # enable help menu
 
     # -----------------------------------------------------------------------------------
     # transaction database
@@ -293,7 +292,7 @@ def main():
 
     # filtering time
     max_date = max(transactions[clm["date"]])
-    transactions_new = transactions_new[transactions_new[clm['date']] >= (max_date - timedelta(days=5))]
+    transactions_new = transactions_new[transactions_new[clm['date']] >= (max_date - datetime.timedelta(days=5))]
 
     # removing overlap
     try:
@@ -317,6 +316,23 @@ def main():
     transactions_new[clm['balance']] = transactions_new[clm['balance']].round(2)
 
     # -----------------------------------------------------------------------------------
+    # load classifier pipeline
+
+    classifier = load(cfg['categorizer file'] + '.joblib')
+
+    # -----------------------------------------------------------------------------------
+    # classify new transactions
+
+    prob = classifier.predict_proba(transactions_new)
+    prob = np.round(prob * 100)
+    maxindex = np.argmax(prob, axis=1)
+
+    transactions_new[clm['category']] = classifier.classes_[maxindex]
+    transactions_new['confidence']    = prob[np.arange(prob.shape[0]), maxindex]
+
+    print('finished categorizing new transactions')
+
+    # -----------------------------------------------------------------------------------
     # merge transactions
 
     transactions = pd.concat([transactions_new, transactions]).reset_index(drop=True)
@@ -325,6 +341,16 @@ def main():
     # save transaction database
 
     save_transactions_to_csv(transactions, clm, cfg)
+
+    # -----------------------------------------------------------------------------------
+    # open transaction editor
+
+    print('start transaction editor')
+
+    if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        os.system(f"transaction_editor.exe -r {transactions_new.shape[0]}")
+    elif getattr(sys, 'frozen', True):
+        os.system(f"python transaction_editor.py -r {transactions_new.shape[0]}")
 
 if __name__ == "__main__":
     main()

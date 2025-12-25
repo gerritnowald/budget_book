@@ -4,9 +4,8 @@
 
 Banking transactions are saved into a csv database and then analyzed for a given timeframe.
 
-Three scripts are used to manage the banking transactions:
-- `transaction_importer` downloads new transactions using the *comdirect bank* API and appends them to the database.
-- `transaction_categorizer` categorizes the transactions based on their description text using Machine Learning.
+Two scripts are used to manage the banking transactions:
+- `transaction_importer` downloads new transactions using the *comdirect bank* API and appends them to the database. They are categorized based on their description text using Machine Learning.
 - `transaction_editor` is a console user interface to modify transactions, which is faster to use than Excel.  
 
 The transactions are analyzed in a Jupyter notebook, see this example:  
@@ -25,8 +24,7 @@ This is not a professional and easy to use budget planer and requires some progr
   * [comdirect API](#comdirect-api)
 - [how to use](#how-to-use)
   * [managing banking transactions](#managing-banking-transactions)
-    + [import](#import)
-    + [categorization](#categorization-1)
+    + [import](#import-&-categorization)
     + [console user interface](#console-user-interface)
   * [creating a spendings report](#creating-a-spendings-report)
   * [analyzing stock portfolio performance](#analyzing-stock-portfolio-performance)
@@ -90,10 +88,10 @@ For the API import for the German *comdirect bank*, the user has to [register](h
 
 ## managing banking transactions
 
-New transactions are merged to the database & categorized using three standalone scripts running in batch mode.  
+New transactions are merged to the database & categorized using two standalone scripts running in batch mode.  
 They can be used independently or in sequence, the latter by calling `start_transaction_importer.bat`.
 
-### import
+### import & categorization
 
 New transactions are appended to the database using
 ```
@@ -106,12 +104,7 @@ Alternatively, they can also be read from an exported csv file.
 A code example is provided in `test_import_transactions.ipynb`, which can be adapted in the interactive Jupyter environment.  
 The final code can then be inserted into the function `def transactions_CSV()` in `transaction_importer.py`.
 
-### categorization
-
-```
-transaction_categorizer
-```
-categorizes the transactions based on their description text using Machine Learning, see also this blog post:  
+The transactions are categorized based on their description text using Machine Learning, see also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/  
 
 ### console user interface
@@ -126,7 +119,7 @@ https://gerritnowald.wordpress.com/2024/02/26/creating-a-command-line-interface-
 
 It can also be used to split transactions, e.g. for cash withdrawal at the supermarket.
 
-The console user interface is automatically run after `transaction_categorizer`.  
+The console user interface is automatically run after `transaction_importer`.  
 The pre-selected line highlights the last previously appended transaction.
 
 ## spendings report
