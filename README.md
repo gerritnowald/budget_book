@@ -166,7 +166,7 @@ If an online repo is used, it is **strongly** recommended to make it private and
 - curses (for console user interface)
 - yfinance (to retrieve stock data)
 
-On Windows, use `start_transaction_importer.bat` to install the required packages.
+On Windows, use `src\install_dependencies.bat` to install the required packages.
 
 # contributions
 
