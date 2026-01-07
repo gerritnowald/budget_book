@@ -206,10 +206,10 @@ def get_accountId(access_credentials):
             return account["account"]["accountId"]
 
 
-def get_transactions(access_credentials, pastDays = 30):
+def get_transactions(access_credentials, startDate):
     account_id = access_credentials["account_id"]
     end_date   = datetime.datetime.now(datetime.timezone.utc).date()
-    start_date = end_date - datetime.timedelta(days=pastDays)
+    start_date = (startDate - datetime.timedelta(days=5)).date()   # to capture possible delayed transactions
 
     res = []
     i = 0
@@ -219,7 +219,7 @@ def get_transactions(access_credentials, pastDays = 30):
             ).json()["values"] )   # loop necessary, since setting different min & max booking dates does not reliably fetch all transactions in this period
         print(f'fetching transactions: {i+1}/{(end_date - start_date).days + 1} days processed', end='\r')
         i += 1
-        time.sleep(.5)   # to avoid too many requests in short time
+        time.sleep(0.5)   # to avoid too many requests in short time
     
     return [item for sublist in res for item in sublist]
 
@@ -247,10 +247,10 @@ def convert2dataframe(transactions, clm):
     return df
 
 
-def transactions_API_comdirect(clm, pastDays = 30):
+def transactions_API_comdirect(clm, startDate):
     access_credentials = authenticate_api()
     print('login successful')
-    transactions = get_transactions(access_credentials, pastDays)
+    transactions = get_transactions(access_credentials, startDate)
     df = convert2dataframe(transactions, clm)
     return df
 
@@ -263,8 +263,6 @@ import sys
 import os
 
 import numpy as np
-
-from functions import save_transactions_to_csv
 
 def main():
 
@@ -281,7 +279,7 @@ def main():
 
     print('start download new transactions')
 
-    transactions_new = transactions_API_comdirect(clm, pastDays = 30)
+    transactions_new = transactions_API_comdirect(clm, startDate = max(transactions[clm["date"]]))
     
     # transactions_new = transactions_CSV(clm,cfg)
     
@@ -290,29 +288,23 @@ def main():
     # -----------------------------------------------------------------------------------
     # prepare merge
 
-    # filtering time
-    max_date = max(transactions[clm["date"]])
-    transactions_new = transactions_new[transactions_new[clm['date']] >= (max_date - datetime.timedelta(days=5))]
-
     # removing overlap
-    try:
-        transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount'], clm['type']], how='right', indicator=True )
-    except:
-        transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text'], clm['amount']], how='right', indicator=True )
-    transactions_new = transactions_new.query('_merge == "right_only"').drop(['_merge'], axis=1)
+    transactions_new = transactions.merge(transactions_new, on=[clm['date'], clm['text']], how='right', suffixes=('_x', None), indicator=True )
+    transactions_new = transactions_new.query('_merge == "right_only"').drop(['_merge'], axis=1)    # keep only new transactions, drop indicator column
+    transactions_new = transactions_new.drop(columns=[col for col in transactions_new.columns if col.endswith('_x')])
 
     if len(transactions_new) == 0:
         print('no new transactions since last download!')
         return  # end function
 
     # sort to prevent negative balance due to same day transactions
-    transactions_new.sort_values([clm['date'], clm['amount']], ascending = [False, True], inplace = True)
+    transactions_new.sort_values([clm['date'], clm['amount']], ascending = [True, False], inplace = True)
 
     # -----------------------------------------------------------------------------------
     # calculate balance
 
-    final_balance = transactions.loc[0, clm['balance']]
-    transactions_new[clm['balance']] = transactions_new.loc[::-1, clm['amount']].cumsum()[::-1] + final_balance
+    final_balance = transactions[clm['balance']].iat[-1]
+    transactions_new[clm['balance']] = transactions_new[clm['amount']].cumsum() + final_balance
     transactions_new[clm['balance']] = transactions_new[clm['balance']].round(2)
 
     # -----------------------------------------------------------------------------------
@@ -333,14 +325,15 @@ def main():
     print('finished categorizing new transactions')
 
     # -----------------------------------------------------------------------------------
-    # merge transactions
+    # append to main dataset
 
-    transactions = pd.concat([transactions_new, transactions]).reset_index(drop=True)
+    transactions_new = transactions_new[[clm['date'], clm['type'], clm['text'], clm['amount'], clm['category'], clm['balance'], 'confidence']]
 
-    # -----------------------------------------------------------------------------------
-    # save transaction database
+    transactions_new[clm['date']] = transactions_new[clm['date']].dt.strftime(cfg['date format'])
+    transactions_new = transactions_new.astype(str).replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
+    transactions_new.to_csv(cfg['CSV filenames']['database'] + '.csv', mode='a', header=False, index=False, encoding = "ISO-8859-1")
 
-    save_transactions_to_csv(transactions, clm, cfg)
+    print(f'new transactions appended to database')
 
     # -----------------------------------------------------------------------------------
     # open transaction editor
@@ -348,9 +341,9 @@ def main():
     print('start transaction editor')
 
     if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
-        os.system(f"transaction_editor.exe -r {transactions_new.shape[0]}")
+        os.system(f"transaction_editor.exe -r {transactions_new.shape[0] - 1}")
     elif getattr(sys, 'frozen', True):
-        os.system(f"python transaction_editor.py -r {transactions_new.shape[0]}")
+        os.system(f"python transaction_editor.py -r {transactions_new.shape[0] - 1}")
 
 if __name__ == "__main__":
     main()

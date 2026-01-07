@@ -27,27 +27,36 @@ clm = cfg['column names database']
 # load data
 
 transactions = pd.read_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1")
-
 transactions[clm['date']] = pd.to_datetime(transactions[clm['date']], format = cfg['date format'])
+
+# ensure necessary columns exist
+if clm['type'] not in transactions.columns:
+    transactions[clm['type']] = ''
+if clm['category'] not in transactions.columns:
+    transactions[clm['category']] = ''
+if clm['balance'] not in transactions.columns:
+    transactions[clm['balance']] = ''
+if 'confidence' not in transactions.columns:
+    transactions['confidence'] = ''
 
 #------------------------------------------------------------------------------
 # calculate balance
 
 # sort to prevent negative balance due to same day transactions
-transactions.sort_values([clm['date'], clm['amount']], ascending = [False, True], inplace = True)
+transactions.sort_values([clm['date'], clm['amount']], ascending = [True, False], inplace = True)
 
-transactions[clm['balance']] = transactions.loc[::-1, clm['amount']].cumsum()[::-1]
-transactions[clm['balance']] = transactions[clm['balance']] - transactions.loc[0,clm['balance']] + args.balance
+transactions[clm['balance']] = transactions[clm['amount']].cumsum()
+transactions[clm['balance']] = transactions[clm['balance']] - transactions[clm['balance']].iat[-1] + args.balance
 transactions[clm['balance']] = transactions[clm['balance']].round(2)
 
 print('balance over time updated.')
 
 #--------------------------------------------------------------------------
-# save
-# The date and number format are adjusted that they don't conflict with saving the database using Excel.
+# save transaction database
+
+# reorder columns
+transactions = transactions[[clm['date'], clm['type'], clm['text'], clm['amount'], clm['category'], clm['balance'], 'confidence']]
 
 transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
-transactions = transactions.astype(str)
-transactions = transactions.replace(to_replace = "\.0+$", value = "", regex = True)     # remove trailing zeros
-# transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "", regex = True)
+transactions = transactions.astype(str).replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
 transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)

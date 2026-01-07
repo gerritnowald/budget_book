@@ -98,6 +98,7 @@ New transactions are appended to the database using
 transaction_importer
 ```
 which is using the *comdirect bank* API.  
+New transactions are downloaded based on the last date in the database. Some overlap is considered and removed using a merge to make the import more robust.  
 Also the balance over time is updated.  
 
 Alternatively, they can also be read from an exported csv file.  

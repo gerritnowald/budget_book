@@ -3,7 +3,6 @@ Console user interface to browse & modify transactions:
 - change category
 - split transaction """
 
-# pip install windows-curses
 import curses
 
 import pandas as pd
@@ -13,8 +12,7 @@ import argparse
 import yaml
 from joblib import load
 import re
-
-import functions    # local functions in this repository
+import os
 
 
 def main(stdscr):
@@ -54,7 +52,7 @@ def main(stdscr):
     curses.curs_set(0)  # Hide the cursor
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)  # Define color pair
     
-    # row & column settings
+    # row & column settings: x = characters, y = lines
     y_max, x_max = stdscr.getmaxyx()
     y_header     = 8
     y_entries    = y_max - y_header - 2
@@ -83,13 +81,21 @@ def main(stdscr):
     # main loop for transactions
     
     # initialization
-    current_row = args.row
-    top_row     = max([current_row - y_entries + 1 , 0])
-    change      = False   # only save if data changed
-    offset      = 0
+    last_row     = df.shape[0] - 1      # last row index
+    current_row  = last_row - args.row  # highlighted row
+    top_row      = min( max( current_row , 0) , last_row + 1 - y_entries )  # first printed row
+    
+    max_edit_row = last_row  # highest row that was edited
+    lines_added  = 0         # sums up added lines due to splits and removed lines due to deletions
+    
+    change = False   # only save if data changed
+    offset = 0       # horizontal offset for text scrolling
     
     while True:
+
+        # -----------------------------------------------------------------------------------
         # Print DataFrame rows
+
         for i, (_, row) in enumerate(df.iloc[top_row : top_row + y_entries].iterrows()):
             # description text
             text = row[clm['text']]
@@ -126,6 +132,7 @@ def main(stdscr):
         if key == curses.KEY_RIGHT:
             if offset < max_offset:
                 offset += 1
+
         elif key == curses.KEY_LEFT:
             if offset > 0:
                 offset -= 1
@@ -137,17 +144,20 @@ def main(stdscr):
             offset = 0
             current_row = max(0, current_row - 1)
             if current_row - top_row < 0:
-                top_row -= 1
+                top_row -= 1    # scroll up
+
         elif key == curses.KEY_DOWN:
             offset = 0
-            current_row = min(len(df) - 1, current_row + 1)
+            current_row = min(last_row, current_row + 1)
             if current_row - top_row > y_entries - 1:
-                top_row += 1
+                top_row += 1    # scroll down
 
         # -----------------------------------------------------------------------------------
         # split transaction
 
         elif key == 115:  # ASCII value of s key
+
+            # input new amount
             offset = 0
             curses.echo()
             stdscr.addstr(y_entries + y_header + 1, 1, "Enter new amount: ")
@@ -158,30 +168,49 @@ def main(stdscr):
 
             # insert new row
             if abs(new_amount) < abs(df[clm['amount']].iloc[current_row]):
-                change = True
+
+                # update amounts & calculate balance
                 df = pd.concat([
                     df.iloc[:current_row], 
                     df.iloc[[current_row]], 
                     df.iloc[current_row:]]).reset_index(drop=True)
-                df.loc[current_row    , clm['amount'] ]  = + new_amount
-                df.loc[current_row + 1, clm['amount'] ] -=   new_amount
-                df.loc[current_row + 1, clm['balance']] -=   new_amount
+                df.loc[current_row + 1, clm['amount'] ]  = new_amount
+                df.loc[current_row    , clm['amount'] ] -= new_amount
+                df.loc[current_row    , clm['balance']] -= new_amount
+
+                # update view
+                if current_row == last_row: # last row highlighted
+                    top_row += 1    # scroll down
+                last_row += 1
+
+                # mark change
+                change = True
+                max_edit_row = min(max_edit_row, current_row)
+                lines_added += 1
 
         # -----------------------------------------------------------------------------------
         # remove transaction
 
         elif key == 114:  # ASCII value of r key
-            change = True
 
             # calculate balance
-            df.loc[:current_row, clm['balance']] -= df.loc[ current_row, clm['amount']]
-            df.loc[:current_row, clm['balance']]  = df.loc[:current_row, clm['balance']].round(2)
+            df.loc[current_row:, clm['balance']] -= df.loc[current_row , clm['amount' ]]
+            df.loc[current_row:, clm['balance']]  = df.loc[current_row:, clm['balance']].round(2)
 
             # remove row
             df = df.drop(current_row).reset_index(drop=True)
-            current_row = max(0, current_row)
-            if current_row - top_row < 0:
-                top_row -= 1
+
+            # update view
+            if top_row + y_entries > last_row:  # list already scrolled down    
+                top_row -= 1    # scroll up
+            if current_row == last_row: # last row highlighted
+                current_row -= 1
+            last_row -= 1
+
+            # mark change
+            change = True
+            max_edit_row = min(max_edit_row, current_row - 1)
+            lines_added -= 1
         
         # -----------------------------------------------------------------------------------
         # categorize transaction
@@ -212,9 +241,13 @@ def main(stdscr):
                                 
                 # save category
                 elif key == 10:  # ASCII value of Enter key
-                    change = True
                     df.loc[current_row, clm['category']] = categories[ind]
                     df.loc[current_row, 'confidence']    = np.nan
+
+                    # mark change
+                    change = True
+                    max_edit_row = min(max_edit_row, current_row)
+
                     break
 
                 # return without saving
@@ -226,7 +259,24 @@ def main(stdscr):
 
         elif key == 113:  # ASCII value of q key
             if change:  # save database
-                functions.save_transactions_to_csv(df, clm, cfg)
+                
+                # byte-wise remove last lines from file
+                lines_to_remove = last_row - max_edit_row + 1 - lines_added  # added & removed lines are not in file yet
+                with open(cfg['CSV filenames']['database'] + '.csv', "rb+") as f:
+                    f.seek(0, os.SEEK_END)
+                    size = f.tell()
+
+                    f.seek(max(0, size - 4096)) # read last 4KB
+                    tail = f.read().splitlines()
+
+                    bytes_to_remove = sum(len(line) + 2 for line in tail[-lines_to_remove:])
+                    f.truncate(size - bytes_to_remove)
+
+                # append changed transactions
+                transactions_changed = df.iloc[max_edit_row:].copy()
+                transactions_changed = transactions_changed.astype(str).replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
+                transactions_changed.to_csv(cfg['CSV filenames']['database'] + '.csv', mode='a', header=False, index=False, encoding = "ISO-8859-1")
+
             break
         
         # quit without save
