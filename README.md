@@ -1,6 +1,6 @@
 # introduction
 
-![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/media/sunburst.webp)
+![](https://raw.githubusercontent.com/gerritnowald/budget_book/main/sunburst.webp)
 
 Banking transactions are saved into a csv database and then analyzed for a given timeframe.
 
