@@ -26,8 +26,8 @@ clm = cfg['column names database']
 #------------------------------------------------------------------------------
 # load data
 
-transactions = pd.read_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1")
-transactions[clm['date']] = pd.to_datetime(transactions[clm['date']], format = cfg['date format'])
+transactions = pd.read_csv( cfg['CSV filenames']['database'] + '.csv', encoding = 'ISO-8859-1', 
+        parse_dates=[clm['date']], date_format=cfg['date format'] )
 
 # ensure necessary columns exist
 if clm['type'] not in transactions.columns:
