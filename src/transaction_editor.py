@@ -178,6 +178,9 @@ def main(stdscr):
                 df.loc[current_row    , clm['amount'] ] -= new_amount
                 df.loc[current_row    , clm['balance']] -= new_amount
 
+                df.loc[current_row:, clm['amount'] ]  = df.loc[current_row:, clm['amount'] ].round(2)
+                df.loc[current_row:, clm['balance']]  = df.loc[current_row:, clm['balance']].round(2)
+
                 # update view
                 if current_row == last_row: # last row highlighted
                     top_row += 1    # scroll down

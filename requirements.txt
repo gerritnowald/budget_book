@@ -1,0 +1,19 @@
+pandas
+pyyaml
+
+# analyse.ipynb
+matplotlib
+plotly
+kaleido
+nbformat
+voila
+
+# categorizer_training.ipynb
+scikit-learn
+
+# transaction_importer.py
+requests
+
+# transaction_editor.py
+windows-curses
+rapidfuzz
