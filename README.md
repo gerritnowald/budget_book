@@ -39,10 +39,6 @@ This is not a professional and easy to use budget planer and requires some progr
 
 General settings such as file names & column names have to be set in `config.ini`.
 
-To compile the scripts for Windows, use the batch files in the folder `.\src\make\`.  
-They are then placed in `.\bin\win64\`.  
-This is optional, all scripts in the folder `.\src\` can be used as is.
-
 ## transactions database
 
 Initially, transactions (e.g. from the last year) are exported from online banking as a csv file.  

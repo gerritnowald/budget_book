@@ -10,10 +10,10 @@ voila
 
 # categorizer_training.ipynb
 scikit-learn
+rapidfuzz
 
 # transaction_importer.py
 requests
 
 # transaction_editor.py
 windows-curses
-rapidfuzz
