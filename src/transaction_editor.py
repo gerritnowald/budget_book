@@ -12,7 +12,23 @@ import argparse
 import yaml
 from joblib import load
 import re
-import os
+
+
+def save_transactions_to_csv(transactions, clm, cfg):
+    """date and number format are adjusted that they don't conflict #
+    with saving the database using Excel."""
+    try:
+        transactions[clm['date']] = transactions[clm['date']].dt.strftime(cfg['date format'])
+    except:
+        pass
+    transactions = transactions.astype(str)
+    transactions = transactions.replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
+    try:
+        transactions[clm['type']] = transactions[clm['type']].replace(to_replace = "nan", value = "")
+    except:
+        pass
+    transactions.to_csv(cfg['CSV filenames']['database'] + '.csv', encoding = "ISO-8859-1", index=0)
+    print('finished saving transactions to database')
 
 
 def main(stdscr):
@@ -84,9 +100,6 @@ def main(stdscr):
     last_row     = df.shape[0] - 1      # last row index
     current_row  = last_row - args.row  # highlighted row
     top_row      = min( max( current_row , 0) , last_row + 1 - y_entries )  # first printed row
-    
-    max_edit_row = last_row  # highest row that was edited
-    lines_added  = 0         # sums up added lines due to splits and removed lines due to deletions
     
     change = False   # only save if data changed
     offset = 0       # horizontal offset for text scrolling
@@ -186,10 +199,7 @@ def main(stdscr):
                     top_row += 1    # scroll down
                 last_row += 1
 
-                # mark change
                 change = True
-                max_edit_row = min(max_edit_row, current_row)
-                lines_added += 1
 
         # -----------------------------------------------------------------------------------
         # remove transaction
@@ -210,10 +220,7 @@ def main(stdscr):
                 current_row -= 1
             last_row -= 1
 
-            # mark change
             change = True
-            max_edit_row = min(max_edit_row, current_row - 1)
-            lines_added -= 1
         
         # -----------------------------------------------------------------------------------
         # categorize transaction
@@ -247,10 +254,7 @@ def main(stdscr):
                     df.loc[current_row, clm['category']] = categories[ind]
                     df.loc[current_row, 'confidence']    = np.nan
 
-                    # mark change
                     change = True
-                    max_edit_row = min(max_edit_row, current_row)
-
                     break
 
                 # return without saving
@@ -262,24 +266,7 @@ def main(stdscr):
 
         elif key == 113:  # ASCII value of q key
             if change:  # save database
-                
-                # byte-wise remove last lines from file
-                lines_to_remove = last_row - max_edit_row + 1 - lines_added  # added & removed lines are not in file yet
-                with open(cfg['CSV filenames']['database'] + '.csv', "rb+") as f:
-                    f.seek(0, os.SEEK_END)
-                    size = f.tell()
-
-                    f.seek(max(0, size - 4096)) # read last 4KB
-                    tail = f.read().splitlines()
-
-                    bytes_to_remove = sum(len(line) + 2 for line in tail[-lines_to_remove:])
-                    f.truncate(size - bytes_to_remove)
-
-                # append changed transactions
-                transactions_changed = df.iloc[max_edit_row:].copy()
-                transactions_changed = transactions_changed.astype(str).replace(to_replace = r"\.0+$", value = "", regex = True)     # remove trailing zeros
-                transactions_changed.to_csv(cfg['CSV filenames']['database'] + '.csv', mode='a', header=False, index=False, encoding = "ISO-8859-1")
-
+                save_transactions_to_csv(df, clm, cfg)
             break
         
         # quit without save
