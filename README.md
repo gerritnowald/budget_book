@@ -100,6 +100,13 @@ Alternatively, they can also be read from an exported csv file.
 A code example is provided in `test_import_transactions.ipynb`, which can be adapted in the interactive Jupyter environment.  
 The final code can then be inserted into the function `def transactions_CSV()` in `transaction_importer.py`.
 
+For the German *Norisbank*, bank transactions can be downloaded on a monthly basis as pdf bank report.  
+The report can be parsed using
+```
+transaction_importer_Norisbank -p [PDF ...]
+```
+for a specific pdf report. Omitting the arguments parses all pdf reports in the current folder.
+
 The transactions are categorized based on their description text using Machine Learning, see also this blog post:  
 https://gerritnowald.wordpress.com/2023/04/05/categorize-banking-transactions-with-machine-learning/  
 
